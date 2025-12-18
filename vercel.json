@@ -1,0 +1,21 @@
+{
+  "rewrites": [
+    {
+      "source": "/premiacoes-robos",
+      "destination": "/premiacoes-robos.html"
+    },
+    {
+      "source": "/sobre-first",
+      "destination": "/sobre-first.html"
+    },
+    {
+      "source": "/mentorias",
+      "destination": "/mentorias.html"
+    },
+    {
+      "source": "/patrocinio",
+      "destination": "/patrocinio.html"
+    }
+  ]
+}
+
