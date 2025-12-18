@@ -152,5 +152,5 @@ if ('loading' in HTMLImageElement.prototype) {
     document.body.appendChild(script);
 }
 
-console.log('Under Control 1156 - Site carregado com sucesso!');
+console.log('Starbots - Site carregado com sucesso!');
 

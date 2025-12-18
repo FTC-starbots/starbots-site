@@ -1,6 +1,6 @@
-# Under Control 1156 - Website
+# Starbots - Website
 
-Site institucional do time de robótica Under Control 1156, inspirado no design do site oficial.
+Site institucional do time de robótica Starbots, inspirado no design do site oficial.
 
 ## Estrutura do Projeto
 
@@ -69,5 +69,5 @@ As cores podem ser personalizadas no arquivo `styles.css` através das variávei
 
 ## Licença
 
-©2025 Under Control - 1156 | O Time de Robótica do Brasil. All Rights Reserved.
+©2025 Starbots - 16055 | O Time de Robótica do Brasil. All Rights Reserved.
 

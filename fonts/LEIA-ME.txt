@@ -1,0 +1,23 @@
+===========================================
+INSTRUÇÕES PARA ADICIONAR A FONTE NASALIZATION
+===========================================
+
+1. Baixe a fonte Nasalization no site:
+   https://www.dafont.com/nasalization.font
+
+2. Extraia o arquivo ZIP baixado
+
+3. Copie o arquivo "NasalizationRg.otf" ou "NasalizationRg.ttf" 
+   para esta pasta (fonts/)
+
+4. O arquivo deve estar nomeado como:
+   - NasalizationRg.otf (preferencial)
+   - OU NasalizationRg.ttf
+
+5. Recarregue a página no navegador (F5)
+
+A fonte será aplicada automaticamente à palavra "Starbots" 
+no logo e no título principal do site.
+
+===========================================
+
