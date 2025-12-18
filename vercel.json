@@ -1,5 +1,11 @@
 {
+  "cleanUrls": false,
+  "trailingSlash": false,
   "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
     {
       "source": "/premiacoes-robos",
       "destination": "/premiacoes-robos.html"
@@ -15,6 +21,17 @@
     {
       "source": "/patrocinio",
       "destination": "/patrocinio.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*\\.(html|css|js|webp|otf|png|jpg|jpeg|svg|ico))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
