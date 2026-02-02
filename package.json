@@ -1,0 +1,9 @@
+{
+  "name": "starbots-lp",
+  "version": "1.0.0",
+  "description": "Site institucional do time de robótica Starbots",
+  "scripts": {
+    "build": "echo 'No build step required'"
+  }
+}
+
