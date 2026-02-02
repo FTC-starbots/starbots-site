@@ -12,32 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a href="/" class="logo">
-                        <span class="logo-text">
-                            <span class="letter">S</span><span class="letter">T</span><span class="letter">A</span><span class="letter">R</span><span class="letter">B</span><span class="letter">O</span><span class="letter">T</span><span class="letter">S</span>
-                        </span>
-                    </a>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <ul class="nav-menu">
-                        <li><a href="/">Quem somos</a></li>
-                        <li><a href="/premiacoes-robos.html">Premiações e Robôs</a></li>
-                        <li><a href="/sobre-first.html">Sobre a FIRST®</a></li>
-                        <li><a href="/mentorias.html">Mentorias</a></li>
-                        <li><a href="/patrocinio.html">Patrocínio</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <!-- Header (carregado via JS) -->
+    <div id="header-placeholder"></div>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -85,50 +61,17 @@
                     <p class="section-description">
                         <strong>Entre em contato conosco.</strong>
                     </p>
-                    <a href="#" class="cta-button">Solicitar Mentoria</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVd_ZV2N5W38NZ3HyTGsuY-q2gYKbBh4XIttNgGy9e6m_EAQ/viewform?usp=publish-editor" target="_blank" class="cta-button">Entre em contato</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-placeholder-large">Logo TEAM16055</div>
-                    <div class="footer-image-placeholder">IMG_4516.jpg</div>
-                </div>
-                <div class="footer-info">
-                    <div class="footer-section">
-                        <h4 class="footer-title">LOCALIZAÇÃO</h4>
-                        <p class="footer-text">
-                            Escola SESI Betim<br>
-                            Betim - MG, Brasil
-                        </p>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-title">CONTATO</h4>
-                        <p class="footer-text">
-                            Email: starbots.ftc@gmail.com<br>
-                            Equipe: STARBOTS FTC #16055
-                        </p>
-                    </div>
-                    <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
-                        <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
-                        <a href="#" class="social-link" aria-label="YouTube">YouTube</a>
-                        <a href="#" class="social-link" aria-label="TikTok">TikTok</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy;2025 STARBOTS FTC #16055 | Escola SESI Betim-MG. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer (carregado via JS) -->
+    <div id="footer-placeholder"></div>
 
+    <script src="/js/components.js"></script>
+    <script src="/js/animations.js"></script>
     <script src="/script.js"></script>
 </body>
 </html>
-
