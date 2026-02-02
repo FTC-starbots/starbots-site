@@ -2,20 +2,27 @@
 import http.server
 import socketserver
 import os
+from urllib.parse import unquote
 
-PORT = 3000
+PORT = 8000
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
-        """Mapeia requisições de /images/ e /fonts/ para a pasta public/"""
+        """Mapeia requisições de /images/, /fonts/ e /logos/ para a pasta public/"""
         # Remove query strings e fragments
         path = path.split('?')[0]
         path = path.split('#')[0]
         
-        # Verifica se o path começa com /images/ ou /fonts/
-        if path.startswith('/images/') or path.startswith('/fonts/'):
+        # Decodifica URL encoding (ex: %20 para espaço)
+        path = unquote(path)
+        
+        # Verifica se o path começa com /images/, /fonts/, /logos/ ou /teams/
+        if path.startswith('/images/') or path.startswith('/fonts/') or path.startswith('/logos/') or path.startswith('/teams/'):
             # Mapeia para a pasta public/
-            return os.path.join(os.getcwd(), 'public', path.lstrip('/'))
+            file_path = path.lstrip('/')
+            full_path = os.path.join(os.getcwd(), 'public', file_path)
+            # Normaliza o caminho para o sistema operacional
+            return os.path.normpath(full_path)
         
         # Para outros paths, usa o comportamento padrão
         return super().translate_path(path)

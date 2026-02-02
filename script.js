@@ -152,5 +152,38 @@ if ('loading' in HTMLImageElement.prototype) {
     document.body.appendChild(script);
 }
 
+// Equipes Cards Toggle
+const equipeCards = document.querySelectorAll('.equipe-card');
+const equipeDetails = document.querySelectorAll('.equipe-details');
+
+equipeCards.forEach(card => {
+    card.addEventListener('click', function() {
+        const equipeId = this.getAttribute('data-equipe');
+        
+        // Remove active class from all cards
+        equipeCards.forEach(c => c.classList.remove('active'));
+        
+        // Add active class to clicked card
+        this.classList.add('active');
+        
+        // Hide all content
+        equipeDetails.forEach(detail => detail.classList.remove('active'));
+        
+        // Show selected content
+        const selectedContent = document.getElementById(`${equipeId}-content`);
+        if (selectedContent) {
+            selectedContent.classList.add('active');
+            
+            // Smooth scroll to content
+            setTimeout(() => {
+                selectedContent.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }, 100);
+        }
+    });
+});
+
 console.log('Starbots - Site carregado com sucesso!');
 

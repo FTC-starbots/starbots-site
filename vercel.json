@@ -19,8 +19,12 @@
       "destination": "/mentorias.html"
     },
     {
-      "source": "/patrocinio",
-      "destination": "/patrocinio.html"
+      "source": "/parceiros",
+      "destination": "/parceiros.html"
+    },
+    {
+      "source": "/crie-uma-equipe",
+      "destination": "/crie-uma-equipe.html"
     }
   ],
   "headers": [
