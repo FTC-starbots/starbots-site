@@ -2,7 +2,7 @@
   "version": 2,
   "buildCommand": null,
   "outputDirectory": ".",
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
     {
@@ -26,24 +26,28 @@
       "destination": "/public/images/afonso.webp"
     },
     {
-      "source": "/premiacoes-robos",
-      "destination": "/premiacoes-robos.html"
+      "source": "/quem-somos",
+      "destination": "/quem-somos.html"
     },
     {
       "source": "/sobre-first",
       "destination": "/sobre-first.html"
     },
     {
+      "source": "/premiacoes-robos",
+      "destination": "/premiacoes-robos.html"
+    },
+    {
       "source": "/mentorias",
       "destination": "/mentorias.html"
     },
     {
-      "source": "/parceiros",
-      "destination": "/parceiros.html"
+      "source": "/faca-parte",
+      "destination": "/faca-parte.html"
     },
     {
-      "source": "/crie-uma-equipe",
-      "destination": "/crie-uma-equipe.html"
+      "source": "/parceiros",
+      "destination": "/parceiros.html"
     }
   ],
   "headers": [
