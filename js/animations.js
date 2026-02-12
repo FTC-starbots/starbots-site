@@ -45,7 +45,9 @@ class AnimationController {
             '.passo-card',
             '.habilidade-card',
             '.parceiro-card',
-            '.beneficio-card'
+            '.beneficio-card',
+            '.timeline-item',
+            '.awards-summary-card'
         ];
 
         this.observer = null;
@@ -291,17 +293,100 @@ class InteractionAnimations {
     }
 }
 
+// Classe para animação de contagem de números
+class CountUpAnimation {
+    constructor() {
+        this.animatedNumbers = new Set();
+        this.observer = null;
+    }
+
+    init() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.setup());
+        } else {
+            this.setup();
+        }
+    }
+
+    setup() {
+        setTimeout(() => {
+            this.createObserver();
+            this.observeNumbers();
+        }, 100);
+    }
+
+    createObserver() {
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !this.animatedNumbers.has(entry.target)) {
+                    this.animateNumber(entry.target);
+                    this.animatedNumbers.add(entry.target);
+                }
+            });
+        }, options);
+    }
+
+    observeNumbers() {
+        const numbers = document.querySelectorAll('[data-target]');
+        numbers.forEach(el => {
+            if (!this.animatedNumbers.has(el)) {
+                this.observer.observe(el);
+            }
+        });
+    }
+
+    animateNumber(element) {
+        const target = parseInt(element.getAttribute('data-target'), 10);
+        const suffix = element.getAttribute('data-suffix') || '';
+        const duration = 2000; // 2 segundos
+        const startTime = performance.now();
+        
+        const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+        const updateNumber = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = easeOutQuart(progress);
+            const currentValue = Math.floor(easedProgress * target);
+            
+            element.textContent = currentValue + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            } else {
+                element.textContent = target + suffix;
+            }
+        };
+
+        requestAnimationFrame(updateNumber);
+    }
+
+    refresh() {
+        this.observeNumbers();
+    }
+}
+
 // Inicializa as animações
 const animationController = new AnimationController();
 const interactionAnimations = new InteractionAnimations();
+const countUpAnimation = new CountUpAnimation();
 
 animationController.init();
+countUpAnimation.init();
 
 // Exporta para uso global
 window.AnimationController = animationController;
+window.CountUpAnimation = countUpAnimation;
 
 // Re-observa elementos quando componentes são carregados
 document.addEventListener('componentsLoaded', () => {
     animationController.refresh();
+    countUpAnimation.refresh();
 });
 

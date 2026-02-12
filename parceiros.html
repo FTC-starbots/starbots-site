@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parceiros - Starbots FTC</title>
-    <link rel="icon" type="image/webp" href="/images/afonso.webp">
-    <link rel="apple-touch-icon" href="/images/afonso.webp">
+    <link rel="icon" type="image/webp" href="/public/images/afonso.webp">
+    <link rel="apple-touch-icon" href="/public/images/afonso.webp">
     <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,172 +15,285 @@
     <!-- Header (carregado via JS) -->
     <div id="header-placeholder"></div>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Partners Hero Section -->
+    <section class="partners-hero-section">
         <div class="container">
-            <h1 class="page-title">Nossos Parceiros</h1>
-        </div>
-    </section>
-
-    <!-- Intro Section -->
-    <section class="parceiros-intro-section">
-        <div class="container">
-            <p class="section-description">
-                Nossos parceiros são fundamentais para o sucesso da equipe STARBOTS FTC. Graças ao apoio dessas empresas e instituições, conseguimos participar de competições, desenvolver nossos projetos e expandir o impacto da robótica educacional na comunidade.
-            </p>
-            <div class="cta-parceria">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVd_ZV2N5W38NZ3HyTGsuY-q2gYKbBh4XIttNgGy9e6m_EAQ/viewform?usp=publish-editor" target="_blank" class="cta-button">Seja um Parceiro</a>
+            <div class="partners-hero-wrapper">
+                <div class="partners-hero-content">
+                    <nav class="breadcrumb-nav">
+                        <a href="/" class="breadcrumb-link">Home</a>
+                        <span class="breadcrumb-separator">/</span>
+                        <span class="breadcrumb-current">Parceiros</span>
+                    </nav>
+                    <h1 class="partners-hero-title">
+                        <span class="title-line">Nossos Parceiros</span>
+                        <span class="title-line accent">& Apoiadores</span>
+                    </h1>
+                    <p class="partners-hero-description">
+                        Nossos parceiros são fundamentais para o sucesso da equipe STARBOTS FTC. Graças ao apoio dessas empresas e instituições, conseguimos participar de competições, desenvolver nossos projetos e expandir o impacto da robótica educacional na comunidade.
+                    </p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVd_ZV2N5W38NZ3HyTGsuY-q2gYKbBh4XIttNgGy9e6m_EAQ/viewform?usp=publish-editor" target="_blank" class="cta-button">Seja um Parceiro</a>
+                </div>
+                <div class="partners-hero-visual">
+                    <div class="partners-logos-showcase">
+                        <div class="showcase-logo"><img src="/public/logos/stemospng copiar.webp" alt="stemOS"></div>
+                        <div class="showcase-logo"><img src="/public/logos/familiypng copiar.png" alt="Family Systems"></div>
+                        <div class="showcase-logo"><img src="/public/logos/hinovapng copiar.webp" alt="Hinova"></div>
+                        <div class="showcase-logo"><img src="/public/logos/jhonybpng.png" alt="Jhonny Bravo"></div>
+                        <div class="showcase-logo"><img src="/public/logos/marialogo.png" alt="Maria Angelina"></div>
+                        <div class="showcase-logo"><img src="/public/logos/abrasil.webp" alt="Abrasil"></div>
+                        <div class="showcase-logo"><img src="/public/logos/guzel.webp" alt="Guzel"></div>
+                        <div class="showcase-logo"><img src="/public/logos/rise.png" alt="Rise Idiomas"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Parceiros Grid Section -->
-    <section class="parceiros-grid-section">
+    <!-- Partners Grid Section -->
+    <section class="partners-grid-section">
         <div class="container">
+            <div class="partners-section-header">
+                <span class="partners-label">CONHEÇA NOSSOS PARCEIROS</span>
+                <h2 class="partners-section-title">Empresas que acreditam no nosso projeto</h2>
+            </div>
             
-            <!-- stemOS -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">stemOS</h3>
-                    <span class="parceiro-badge">Programa de Patrocínio</span>
+            <div class="partners-modern-grid">
+                
+                <!-- stemOS -->
+                <div class="partner-modern-card animate-on-scroll featured">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/stemospng copiar.webp" alt="Logo stemOS" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">stemOS</h3>
+                                <span class="partner-tag featured-tag">Programa de Patrocínio</span>
+                            </div>
+                            <p class="partner-description">
+                                A stemOS foi fundada em 2012 como um spin-off de um projeto de pesquisa da Universidade Federal do Rio Grande do Sul. É a <strong>representante exclusiva</strong> para distribuição dos kits e arenas de competição FIRST Tech Challenge e FIRST Robotics Competition no Brasil.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                                <span>Classificados no Programa de Patrocínio stemOS - Temporada DECODE 2025/2026</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>A stemOS foi fundada em 2012 como um spin-off de um projeto de pesquisa da Universidade Federal do Rio Grande do Sul, que desenvolveu uma rede social para alunos de escolas públicas e, dois anos depois, desenvolveu um kit de robótica educacional de baixo custo.</p>
-                    <p>Em 2017, foi ajustado o rumo das competições de robótica, principalmente os programas FIRST. A stemOS nasceu para levar a educação tecnológica por meio da robótica educacional ao próximo nível no Brasil, trazendo materiais para categorias de competição antes aqui inexistentes.</p>
-                    <p>A stemOS é a <strong>representante exclusiva</strong> para distribuição dos kits e arenas de competição FIRST Tech Challenge e FIRST Robotics Competition no Brasil. Também de forma exclusiva, é distribuidora dos equipamentos REV Robotics, AndyMark, goBILDA, Cross the Road Electronics, Swerve Drive Specialties, e Studica Robotics.</p>
-                    <p class="parceiro-destaque">A equipe STARBOTS FTC participou e se classificou no processo seletivo durante a temporada DECODE (2025/2026) do <strong>Programa de Patrocínio stemOS</strong>.</p>
-                </div>
-            </div>
 
-            <!-- Family Systems -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">Family Systems</h3>
-                    <span class="parceiro-badge">Parceiro desde 2024</span>
+                <!-- Family Systems -->
+                <div class="partner-modern-card animate-on-scroll">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/familiypng copiar.png" alt="Logo Family Systems" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">Family Systems</h3>
+                                <span class="partner-tag">Parceiro desde 2024</span>
+                            </div>
+                            <p class="partner-description">
+                                A <strong>missão da Family Systems</strong> é democratizar o acesso à robótica e à automação, oferecendo soluções que permitam às empresas de menor porte otimizar seus processos produtivos.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                                <span>Apoio essencial para conquista do 2° lugar no Prêmio Controle - Competição Internacional</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>Antes de seu surgimento oficial, a Family Systems já vinha atuando no mercado por meios informais, operando através de empresas parceiras. Essa abordagem permitiu o engajamento inicial e a construção de sua presença tanto no mercado nacional quanto internacional, com atuação no Brasil, EUA e México.</p>
-                    <p>Com os bons resultados apresentados e a alta demanda de mercado, a Family Systems oficializou sua entrada no mercado em 2025, trazendo mais flexibilidade e segurança no atendimento a clientes e parceiros. Seu fundador possui vasta experiência no setor industrial, atuando no mercado há mais de 20 anos.</p>
-                    <p>A <strong>missão da Family Systems</strong> é democratizar o acesso à robótica e à automação, oferecendo soluções que permitam às empresas de menor porte otimizar seus processos produtivos, aumentar a eficiência e reduzir o desperdício.</p>
-                    <p class="parceiro-destaque">Na temporada passada INTO THE DEEP (2024/2025), o apoio da Family Systems foi essencial para a conquista do <strong>2° lugar no Prêmio Controle</strong> na competição internacional. A parceria foi renovada na temporada DECODE (2025/2026).</p>
-                </div>
-            </div>
 
-            <!-- Hinova -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">Hinova</h3>
-                    <span class="parceiro-badge">Temporada 2025/2026</span>
+                <!-- Hinova -->
+                <div class="partner-modern-card animate-on-scroll">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/hinovapng copiar.webp" alt="Logo Hinova" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">Hinova</h3>
+                                <span class="partner-tag">Temporada 2025/2026</span>
+                            </div>
+                            <p class="partner-description">
+                                A Hinova nasceu em 2007 e é <strong>referência em soluções digitais e serviços</strong>, oferecendo softwares e ferramentas sob medida para cada cliente. Possui equipe de quase 300 profissionais em Belo Horizonte e Goiânia.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                <span>Parceria fechada em reunião com o fundador Romi - Temporada DECODE</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>Da universidade para o mundo, a empresa Hinova nasceu em 2007 a partir da amizade entre três estudantes, que se uniram para solucionar demandas do mercado de informática e tecnologia e fazer a diferença na vida das empresas.</p>
-                    <p>De lá para cá, o que era apenas um sonho se tornou <strong>referência em soluções digitais e serviços</strong>, oferecendo softwares e ferramentas sob medida para cada cliente. A sede está localizada em Belo Horizonte e possui uma equipe de quase 300 profissionais altamente qualificados e experientes na capital mineira e em Goiânia.</p>
-                    <p class="parceiro-destaque">Foi realizada uma reunião online durante a temporada DECODE (2025/2026), no dia 08/09/2025, em que conversamos com o dono da empresa - Romi, apresentamos o nosso time, nossos valores e missões, e fechamos a parceria.</p>
-                </div>
-            </div>
 
-            <!-- Jhonny Bravo -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">Jhonny Bravo Agenciamento de Carreiras</h3>
-                    <span class="parceiro-badge">Temporada 2025/2026</span>
+                <!-- Jhonny Bravo -->
+                <div class="partner-modern-card animate-on-scroll">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/jhonybpng.png" alt="Logo Jhonny Bravo" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">Jhonny Bravo Agenciamento</h3>
+                                <span class="partner-tag">Temporada 2025/2026</span>
+                            </div>
+                            <p class="partner-description">
+                                Fundada em 2020, a <strong>Jhonny Bravo Agenciamento de Carreiras</strong> é referência em agenciamento, oferecendo serviços de direcionamento artístico, produção, gestão de imagem e assessoria completa.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                                <span>Parceria firmada durante projeto SESI Verso na Escola SESI Betim</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>Jhonny sempre esteve envolvido com o esporte e com a música, duas áreas que marcaram sua trajetória pessoal e profissional. Antes mesmo da fundação oficial da empresa, Jhonny já se dedicava a ajudar jovens jogadores de futebol, patrocinando equipes e revelando talentos que hoje atuam em grandes clubes do Brasil e até no exterior.</p>
-                    <p>Em 2020, nasceu a <strong>Jhonny Bravo Agenciamento de Carreiras</strong>. Ao longo da trajetória, a agência teve a honra de trabalhar com artistas renomados, como a banda katsBarnea, a dupla Marcelo Dias e Fabiana, além do grupo de pagode Axtral.</p>
-                    <p>Hoje, a Jhonny Bravo é referência em agenciamento de carreiras, oferecendo serviços que vão desde o direcionamento artístico, produção e gestão de imagem, até estratégias jurídicas, aumento de engajamento, vendas de shows e assessoria completa.</p>
-                    <p class="parceiro-destaque">O nosso projeto foi apresentado durante a temporada DECODE (2025/2026), para o dono da empresa durante a exibição de nossas ações no projeto SESI Verso que aconteceu na escola SESI Betim.</p>
-                </div>
-            </div>
 
-            <!-- Maria Angelina Aviamentos -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">Maria Angelina Aviamentos</h3>
-                    <span class="parceiro-badge">Parceiro de longa data</span>
+                <!-- Maria Angelina Aviamentos -->
+                <div class="partner-modern-card animate-on-scroll">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/marialogo.png" alt="Logo Maria Angelina" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">Maria Angelina Aviamentos</h3>
+                                <span class="partner-tag special-tag">Parceiro de longa data</span>
+                            </div>
+                            <p class="partner-description">
+                                Loja de aviamentos, produtos para artesanato e enxoval de cozinha criada há <strong>25 anos</strong> no coração de Betim por Jociane Carvalho Amaral.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                                <span>Doação de materiais contribuiu para o 2º lugar no Prêmio Controle</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>Maria Angelina aviamentos é uma loja de aviamentos, produtos para artesanato e enxoval de cozinha. Foi criada há <strong>25 anos</strong> no coração de Betim por Jociane Carvalho Amaral, que conta com o apoio de seu sócio e irmão João Eduardo, tendo o prazer de trabalhar com grande satisfação em servir a artesã.</p>
-                    <p class="parceiro-destaque">Nas últimas temporadas da equipe STARBOTS FTC, a Maria Angelina Aviamentos foi uma grande parceira do nosso time, e o apoio deles foi essencial para realizarmos nossos torneios com a doação de materiais para fazermos nossos acessórios, fortalecendo a identidade da equipe. Esse suporte contribuiu significativamente para a conquista do <strong>2º lugar no Prêmio Controle</strong>.</p>
-                    <p>Nossa parceria foi renovada na temporada DECODE (2025/2026), e a loja ficou responsável pela doação de utensílios para realizarmos os acessórios usados pelos competidores e para as trocas feitas pelas equipes nos períodos de torneio.</p>
-                </div>
-            </div>
 
-            <!-- Abrasil -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">Abrasil</h3>
-                    <span class="parceiro-badge">Parceiro desde 2024</span>
+                <!-- Abrasil -->
+                <div class="partner-modern-card animate-on-scroll">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/abrasil.webp" alt="Logo Abrasil" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">Abrasil</h3>
+                                <span class="partner-tag">Parceiro desde 2024</span>
+                            </div>
+                            <p class="partner-description">
+                                Empresa do grupo Nascimento Fernandes, fundada em 1997, fornece <strong>comunicação visual e impressão digital</strong> para negócios em todo o Brasil.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                                <span>Estrutura de banners essencial para realização dos torneios</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>A Abrasil é uma empresa do grupo Nascimento Fernandes, fundada em julho de 1997. Nasceu com o intuito de ajudar empresas do Brasil e do mundo, fornecendo a <strong>comunicação visual e impressão digital</strong> ideal para o seu negócio.</p>
-                    <p>Usando a estratégia e a tecnologia renovadas, a empresa busca preservar o meio ambiente, gerar novos empregos, investir em conhecimento e no crescimento dos colaboradores, aumentando a capacidade de produtividade, sempre com qualidade na missão de diminuir os custos, mantendo o foco rumo à conquista da excelência.</p>
-                    <p>A missão da Abrasil é ajudar empresas, fazendo com que elas apareçam no mercado, enaltecendo cada vez mais a marca, traçando metas e diretrizes.</p>
-                    <p class="parceiro-destaque">Na temporada passada, INTO THE DEEP (2024/2025), a empresa Abrasil foi essencial para realizarmos nosso torneio com a estrutura dos banners necessários. Nossa parceria foi renovada na temporada DECODE (2025/2026).</p>
-                </div>
-            </div>
 
-            <!-- Guzel -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">Guzel Brasil</h3>
-                    <span class="parceiro-badge">Parceiro desde 2024</span>
+                <!-- Guzel Brasil -->
+                <div class="partner-modern-card animate-on-scroll">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/guzel.webp" alt="Logo Guzel Brasil" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">Guzel Brasil</h3>
+                                <span class="partner-tag">Parceiro desde 2024</span>
+                            </div>
+                            <p class="partner-description">
+                                Fundada em 2007, a <strong>Guzel Brasil</strong> concentra-se na produção de uniformes esportivos personalizados, camisetas, agasalhos, bandeiras e painéis.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23Z"></path></svg>
+                                <span>Uniformes e bandeiras para os torneios - Parceria renovada em DECODE</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>Fundada em 2007, a Gusel Uniformes e Brindes consolidou-se no mercado como uma empresa especializada na confecção de camisetas de malha e brindes, mas ao longo de sua trajetória, diversificou seu portfólio.</p>
-                    <p>Hoje renomeada como <strong>Guzel Brasil</strong>, em reconhecimento à sua atuação em âmbito nacional, a empresa concentra suas atividades na produção de uniformes esportivos personalizados e peças em malha para diversos segmentos, como camisetas polo, agasalhos, abadás e regatas, bem como bandeiras e painéis personalizados.</p>
-                    <p>Com infraestrutura moderna e equipe altamente qualificada, a empresa mantém um padrão rigoroso de controle de qualidade e compromisso com prazos.</p>
-                    <p class="parceiro-destaque">Na temporada passada INTO THE DEEP (2024/2025), o apoio da Guzel foi essencial para realizarmos nosso torneio com a estrutura dos uniformes e bandeiras necessários. Nossa parceria foi renovada na temporada DECODE (2025/2026).</p>
-                </div>
-            </div>
 
-            <!-- Rise Idiomas -->
-            <div class="parceiro-card animate-on-scroll">
-                <div class="parceiro-header">
-                    <h3 class="parceiro-nome">Rise Idiomas</h3>
-                    <span class="parceiro-badge">Parceiro desde 2024</span>
+                <!-- Rise Idiomas -->
+                <div class="partner-modern-card animate-on-scroll">
+                    <div class="partner-card-inner">
+                        <div class="partner-logo-container">
+                            <img src="/public/logos/rise.png" alt="Logo Rise Idiomas" class="partner-logo">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-header">
+                                <h3 class="partner-name">Rise Idiomas</h3>
+                                <span class="partner-tag">Parceiro desde 2024</span>
+                            </div>
+                            <p class="partner-description">
+                                Desenvolvida em 2017, a Rise Idiomas trabalha as quatro habilidades da língua com foco em <strong>certificações internacionais</strong> e educação mais criativa e inclusiva.
+                            </p>
+                            <div class="partner-highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                                <span>Essencial para ida à competição internacional na Holanda - 2° lugar Prêmio Controle</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="parceiro-content">
-                    <p>A Rise Idiomas foi desenvolvida em 2017 a partir da metodologia de trabalhar as quatro habilidades da língua. No processo da carreira de Esther - Fundadora da empresa - houve bastante contato com provas internacionais e foi percebido que essa era uma das maneiras de trazer ao aluno a confiança de saber onde ele estava no espectro do nível da língua.</p>
-                    <p>Ao invés de entregar níveis ao aluno, a Rise apresenta uma forma mais efetiva. Eles realizam um teste e um simulado para o aluno entender melhor seu próprio nível, baseando em preparações e <strong>certificações internacionais</strong>. Para a Rise é muito importante ter parcerias para promover uma educação mais criativa e inclusiva.</p>
-                    <p class="parceiro-destaque">Com o propósito de promover o conhecimento e aprimoramento da língua inglesa nos participantes da STARBOTS FTC, a parceria com a Rise Idiomas foi realizada na temporada INTO THE DEEP (2024/2025) e foi <strong>essencial para a ida da nossa equipe para a competição internacional na Holanda</strong>, auxiliando na conquista do 2° lugar no Prêmio Controle. A parceria foi renovada na temporada DECODE (2025/2026).</p>
-                </div>
-            </div>
 
+            </div>
         </div>
     </section>
 
     <!-- Seja Parceiro Section -->
-    <section class="seja-parceiro-section">
+    <section class="become-partner-section">
         <div class="container">
-            <h2 class="section-title">Tem interesse em se tornar nosso parceiro?</h2>
-            <div class="seja-parceiro-content">
-                <p class="section-description">
-                    Ao se tornar parceiro da STARBOTS FTC, sua empresa terá sua logo em nosso robô, camisa e banners, e será divulgada em todas nossas redes sociais, projetos e ações sociais desenvolvidas pela equipe e nos torneios em que participamos.
-                </p>
-                <div class="beneficios-grid">
-                    <div class="beneficio-card animate-on-scroll">
-                        <div class="beneficio-icon">📣</div>
-                        <h3>Visibilidade</h3>
-                        <p>Exposição em competições regionais, nacionais e internacionais</p>
+            <div class="become-partner-wrapper">
+                <div class="become-partner-content">
+                    <span class="become-partner-label">FAÇA PARTE DESSA JORNADA</span>
+                    <h2 class="become-partner-title">Tem interesse em se tornar nosso parceiro?</h2>
+                    <p class="become-partner-description">
+                        Ao se tornar parceiro da STARBOTS FTC, sua empresa terá sua logo em nosso robô, camisa e banners, e será divulgada em todas nossas redes sociais, projetos e ações sociais desenvolvidas pela equipe e nos torneios em que participamos.
+                    </p>
+                </div>
+
+                <div class="benefits-showcase">
+                    <div class="benefit-item animate-on-scroll">
+                        <div class="benefit-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Visibilidade</h3>
+                            <p>Exposição em competições regionais, nacionais e internacionais</p>
+                        </div>
                     </div>
-                    <div class="beneficio-card animate-on-scroll delay-1">
-                        <div class="beneficio-icon">🎯</div>
-                        <h3>Impacto Social</h3>
-                        <p>Apoio direto à educação STEAM e formação de jovens talentos</p>
+                    <div class="benefit-item animate-on-scroll delay-1">
+                        <div class="benefit-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Impacto Social</h3>
+                            <p>Apoio direto à educação STEAM e formação de jovens talentos</p>
+                        </div>
                     </div>
-                    <div class="beneficio-card animate-on-scroll delay-2">
-                        <div class="beneficio-icon">🌐</div>
-                        <h3>Presença Digital</h3>
-                        <p>Divulgação em todas as redes sociais e materiais da equipe</p>
+                    <div class="benefit-item animate-on-scroll delay-2">
+                        <div class="benefit-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Presença Digital</h3>
+                            <p>Divulgação em todas as redes sociais e materiais da equipe</p>
+                        </div>
                     </div>
-                    <div class="beneficio-card animate-on-scroll delay-3">
-                        <div class="beneficio-icon">🤝</div>
-                        <h3>Networking</h3>
-                        <p>Conexão com a comunidade FIRST® e outras empresas parceiras</p>
+                    <div class="benefit-item animate-on-scroll delay-3">
+                        <div class="benefit-icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Networking</h3>
+                            <p>Conexão com a comunidade FIRST® e outras empresas parceiras</p>
+                        </div>
                     </div>
                 </div>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVd_ZV2N5W38NZ3HyTGsuY-q2gYKbBh4XIttNgGy9e6m_EAQ/viewform?usp=publish-editor" target="_blank" class="cta-button">Entre em Contato</a>
+
+                <div class="become-partner-cta">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVd_ZV2N5W38NZ3HyTGsuY-q2gYKbBh4XIttNgGy9e6m_EAQ/viewform?usp=publish-editor" target="_blank" class="cta-button large">Entre em Contato</a>
+                </div>
             </div>
         </div>
     </section>

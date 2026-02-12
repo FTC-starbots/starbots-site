@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <path d="M50 0L93.3 25V75L50 100L6.7 75V25L50 0Z" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="2"/>
+  <path d="M50 10L83.3 30V70L50 90L16.7 70V30L50 10Z" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="50" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="600" fill="#999">FIRST®</text>
+  <text x="50" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="500" fill="#666">TECH CHALLENGE</text>
+  <text x="50" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#888">AWARD</text>
+</svg>
+
