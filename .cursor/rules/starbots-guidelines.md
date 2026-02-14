@@ -294,3 +294,13 @@ Ao fazer modificações no site, verifique:
 - **Prioridades**: Acessibilidade e alinhamento com Notion são prioridades máximas.
 - **Comunicação**: Em caso de dúvidas sobre requisitos específicos, consulte o cliente antes de implementar.
 
+
+
+
+
+
+
+
+
+
+

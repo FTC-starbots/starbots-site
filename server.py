@@ -8,8 +8,9 @@ PORT = 8000
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
-        """Mapeia requisições de /images/, /fonts/ e /logos/ para a pasta public/"""
+        """Mapeia requisições de /images/, /fonts/ e /logos/ para a pasta public/ e suporta URLs sem extensão .html"""
         # Remove query strings e fragments
+        original_path = path
         path = path.split('?')[0]
         path = path.split('#')[0]
         
@@ -24,8 +25,16 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             # Normaliza o caminho para o sistema operacional
             return os.path.normpath(full_path)
         
+        # Para paths sem extensão que não sejam a raiz, tenta adicionar .html
+        if path != '/' and not path.endswith('/') and '.' not in os.path.basename(path):
+            # Verifica se o arquivo .html existe
+            html_path = path + '.html'
+            full_html_path = os.path.join(os.getcwd(), html_path.lstrip('/'))
+            if os.path.isfile(full_html_path):
+                return os.path.normpath(full_html_path)
+        
         # Para outros paths, usa o comportamento padrão
-        return super().translate_path(path)
+        return super().translate_path(original_path)
     
     def end_headers(self):
         self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')

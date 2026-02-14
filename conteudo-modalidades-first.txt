@@ -1,0 +1,147 @@
+# CONTEÚDO DAS MODALIDADES FIRST - BACKUP
+# Este arquivo contém o conteúdo removido da página sobre-first.html para uso futuro
+
+================================================================================
+FLL (FIRST® LEGO® League)
+================================================================================
+
+Equipe STARBOTS FLL
+
+A FLL (FIRST® LEGO® League) apresenta STEM (Ciência, Tecnologia, Engenharia e Matemática) para crianças de 5 a 16 anos (varia conforme a região) por meio de aprendizado prático, divertido e empolgante. Os participantes adquirem experiências práticas de resolução de problemas por meio de um programa global de robótica guiado, utilizando a tecnologia LEGO®, ajudando estudantes, famílias e educadores a construir juntos um futuro melhor. Envolvendo estudantes do mundo todo na área STEM, já foram impactados mais de 99.000 estudantes de 81 países diferentes.
+
+A FLL é dividida em três partes:
+
+Divisões da FLL:
+- FIRST® LEGO® League Discover - Desafios STEM através de brincadeiras, desenvolvendo autoconfiança e aprendendo por meio de atividades em sala com peças LEGO - Desenvolvido para crianças de 3 a 5 anos.
+- FIRST® LEGO® League Explore - Realizam resoluções de problemas na prática, aprendendo a projetar e programar com peças LEGO - Desenvolvido para crianças de 6 a 10 anos.
+- FIRST® LEGO® League Challenge - Realizam pesquisas, resoluções de problemas, programação e engenharia, além de participar de desafios sazonais - Desenvolvidos para crianças de 9 a 15 anos.
+
+Todas as divisões inspiram os jovens aprendizes a desenvolverem o pensamento crítico, as habilidades de programação e design, além de demonstrarem o que aprenderam na prática com as peças LEGO.
+
+Na modalidade FLL as equipes são formadas por até 10 competidores, que precisam desenvolver um robô LEGO para cumprir as missões do Desafio do Robô. Além disso, as equipes necessitam encontrar uma solução inovadora, a partir de uma pesquisa alinhada com o tema da temporada.
+
+Para progredir dentro da FLL, é essencial manter um equilíbrio entre as áreas de Core Values, Desafio do Robô, Design do Robô e Projeto de Inovação.
+
+Apresentação de sala:
+A apresentação de sala é dividida em seis momentos, as boas-vindas para a equipe, a apresentação do Projeto de Inovação, as perguntas e respostas do Projeto de Inovação, a apresentação do Design do Robô, as perguntas e respostas do Design do Robô, e o compartilhamento final e feedback.
+
+Logo da FIRST® LEGO® League
+
+PREMIAÇÕES:
+- Champions Award - Este prêmio celebra a equipe que incorpora a experiência da FIRST® LEGO® League através da demonstração de todos os nossos Core Values, ao mesmo tempo que alcança excelência e inovação tanto no Desempenho do Robô, no Design do Robô e no Projeto de Inovação.
+- Core Values - Esta equipe demonstra um entusiasmo e espírito extraordinários, os membros sabem que podem realizar mais quando estão juntos do que poderiam individualmente e mostram uns ao outros e a outras equipes respeito em todos os momentos.
+- Projeto de Inovação - Esta equipe utiliza diversos recursos para seu Projeto de Inovação para ajudá-la a ter uma compreensão integral de seu problema. Além disso, tem uma solução criativa e bem fundamentada e comunica efetivamente suas descobertas aos juízes e à comunidade.
+- Design do robô - Esta equipe utiliza princípios de programação e práticas de engenharia excepcionais para desenvolver um robô mecanicamente sólido, durável, eficiente e com grande capacidade para realizar as missões do desafio.
+- Desempenho do robô - Este prêmio celebra a equipe que marca o maior número de pontos durante o Desafio do Robô. As equipes têm chance de competir em, pelo menos, 3 partidas de 2'30", e apenas sua maior pontuação é a que conta.
+- Prêmio Técnico/Mentor - Técnicos e mentores inspiram suas equipes a fazer seu melhor, tanto individualmente quanto em conjunto, e, sem eles, a FIRST LEGO League não existiria. Este prêmio vai para o técnico ou mentor cuja liderança e orientação são evidentes e exemplificam os Core Values da FIRST® LEGO® League da melhor forma possível.
+
+Desafio da temporada UNEARTHED - Modalidade FLL:
+Logo do desafio UNEARTHED ™ - Modalidade FLL
+
+No desafio UNEARTHED ™, as equipes da FLL (FIRST® LEGO® League) desvendarão o passado para descobrir o futuro. Cada artefato guarda uma história. Cada ferramenta, cada inovação, cada obra de arte conecta-se às pessoas e ideias que nos precederam. Usando habilidades STEM (Ciência, Tecnologia, Engenharia e Matemática) e trabalho em equipe, hoje pode-se explorar descobertas mais a fundo do que nunca.
+
+Link do vídeo sobre o desafio da temporada: DESAFIO DO ROBÔ - UNEARTHED 25/26
+https://youtu.be/SGzJsg4UJ8Y
+
+Na arena do jogo contém 15 missões que podem se realizar em qualquer ordem, não sendo necessário todas, sendo elas:
+- Missão 1: Escavação Superficial
+- Missão 2: Revelação do mapa
+- Missão 3: Explorada de Minas
+- Missão 4: Extração segura
+- Missão 5: Quem viveu aqui?
+- Missão 6: Forja
+- Missão 7: Levantamento de peso
+- Missão 8: Silo
+- Missão 9: O que está à venda?
+- Missão 10: Desequilíbrio da balança
+- Missão 11: Peso de artefatos
+- Missão 12: Operação de resgate
+- Missão 13: Reconstrução da estátua
+- Missão 14: Fórum
+- Missão 15: Marcação do Sítio Arqueológico
+
+Por fim, a quantidade dos discos de precisão utilizadas durante as partidas podem gerar pontos extras.
+
+
+================================================================================
+FTC (FIRST® Tech Challenge)
+================================================================================
+
+Os alunos da FTC (FIRST® Tech Challenge) trabalham em conjunto com seus mentores para projetar e construir robôs dinâmicos que competem em um jogo emocionante, lançado todo mês de setembro. Dentro e fora de campo, os alunos desenvolvem habilidades em STEAM (Ciência, Tecnologia, Engenharia, Arte e Matemática), participam de atividades de extensão comunitária, praticam a inovação em Engenharia e ganham confiança para alcançar o sucesso. Envolvendo estudantes do mundo todo na área STEAM, já foram impactados mais de 597.000 estudantes de 91 países diferentes.
+
+Equipe STARBOTS FTC
+
+Logo da FIRST® Tech Challenge
+
+Alunos de 12 a 18 anos (do 7º EF ao 2° EM) projetam e constroem um robô competitivo e dinâmico a partir de um kit de peças. Um jogo de robótica temático anual traz um novo desafio e oportunidades de aprendizado empolgantes para colaborar e resolver problemas ano após ano. Além disso, todas as equipes desta modalidade possuem o objetivo de expandir o acesso à robótica para todos. Com conexões práticas com a comunidade STEAM e ações que democratizam a robótica. Na modalidade FTC as equipes são formadas por até 10 competidores, que precisam desenvolver um robô que cumpra as demandas da temporada, além de realizar ações que compartilhem conhecimentos sobre a área e sobre a FIRST®.
+
+PREMIAÇÕES:
+- Inspire Award: Reconhece a equipe que melhor representa o espírito da FTC, com excelência em todos os aspectos: desempenho do robô, engenharia, documentação, trabalho em equipe, outreach e impacto na comunidade. É o prêmio mais prestigiado, uma espécie de "melhor equipe completa".
+- Think Award: Premia o time que demonstra melhor processo de engenharia: documentação detalhada, iterações de projeto, testes, solução técnica robusta, ou seja, quem soube planejar, registrar e explicar bem o desenvolvimento do robô.
+- Connect Award: Reconhece equipes com forte conexão com a comunidade STEAM, com mentores, escolas, empresas ou iniciativas de divulgação científica. Destaca profissionalismo, parceria com a comunidade e envolvimento fora da arena da competição.
+- Reach Award: Foca no alcance e expansão da equipe, por meio de outreach, recrutamento de novos membros, envolvimento social ou educativo, contribuindo para crescimento e visibilidade da equipe/programa.
+- Sustain Award: Reconhece quem planejou e estruturou a equipe com visão de longo prazo, como organização, gestão, continuidade, manutenção da equipe e legado, de modo a garantir a sustentabilidade do programa mesmo após as competições.
+- Innovate Award: Premia soluções criativas e inovadoras no robô, como mecanismos inéditos, ideias engenhosas ou design técnico fora do comum. Valoriza criatividade, originalidade e implementação de conceitos técnicos novos.
+- Control Award: Reconhece excelência no controle do robô, como a integração de sensores, código, automação, desempenho consistente, e uso inteligente de software ou sensores para melhorar a funcionalidade do robô em campo.
+- Design Award: Avalia o design do robô, tanto funcional quanto estético: organização, manutenção, clareza no projeto, uso de CAD, limpeza, robustez e apresentação geral do robô. Valoriza o equilíbrio entre forma e função.
+
+Desafio da temporada DECODE - Modalidade FTC:
+Toda temporada FTC (FIRST® Tech Challenge), as equipes são levadas à cumprirem alguns desafios na arena e no robô, e esses desafios são diferentes a cada temporada. Na temporada DECODE, "a partir de 6 de setembro de 2025, as equipes do FIRST® Tech Challenge investigarão o poder dos artefatos do mundo e desvendarão mistérios em um novo desafio, o DECODE™ apresentado pela RTX.
+
+2025-2026 DECODE presented by RTX Game Animation
+https://youtu.be/LCqWA6gSCXA
+
+Cada artefato que descobrimos guarda uma história. Cada ferramenta, cada inovação, cada obra de arte nos conecta às pessoas e ideias que nos precederam. Usando habilidades STEM e trabalho em equipe, hoje podemos explorar descobertas mais a fundo do que nunca."
+
+A arena da temporada DECODE conta com um gol azul e um gol vermelho de cada lado da arena, eles são imagens espelhadas um do outro, ambas com 98.45 cm de altura, além de 4 robôs competindo na partida. Na frente de cada gol está colada uma april tag que funciona como leitura de um alvo para o lançamento dos artefatos, esses artefatos são esféricos, de plástico, nas cores verdes e vermelhas e têm 12.70 cm, e são dispostos no chão da arena em locais específicos. Na frente da arena, possui um obelisco (estrutura triangular) com uma etiqueta de april tag em cada uma das três faces, que disponibiliza a leitura da sequência das cores, essa sequência é escolhida aleatoriamente e o obelisco é virado para a face da sequência selecionada da partida.
+
+Quando o artefato é coletado e atirado no gol, ele cai e rola pela rampa, a rampa suporta 9 artefatos e possui uma trava (portão) que permite o acúmulo de artefatos nela, podendo ser destravada com o robô batendo no portão. O jogador humano pode recuperar os artefatos que foram liberados da rampa e colocá-los no robô, porém, com muito cuidado ao inserir, já que nenhum competidor pode tocar no robô durante a partida. Os robôs das alianças azul e vermelha coletarão artefatos, dirigirão e tentarão marcar pontos, tudo isso no mesmo espaço, assim como também, construir robôs robustos, com o objetivo de suportar a interação entre robôs, para coletar, disparar e defender. As equipes ganham pontos extras se finalizarem a partida com o robô na delimitação quadrangular no chão da arena, que possui 45.70 cm, medida à qual o robô construído deverá respeitar, para facilitar o estacionamento ao final da partida. A partida tem duração de 2 minutos e 30 segundos, dividido entre 30 segundos de autônomo e 2 minutos de tele-operado.
+
+Logo da temporada DECODE
+
+
+================================================================================
+FRC (FIRST® Robotics Competition)
+================================================================================
+
+Equipe STARBOTS FRC
+
+Partindo de um kit de peças, equipes de estudantes do Ensino Médio projetam, programam e constroem robôs de tamanho industrial para jogar um jogo cheio de ação, lançado em janeiro. Eles competem em um campo temático como parte de uma aliança de três equipes, no espírito da Cooperação®. Em um aprendizado 360º guiado por mentores adultos, cada equipe da FIRST® Robotics Competition também cria uma identidade própria, arrecada fundos para atingir seus objetivos e promove o interesse por STEM (Ciência, Tecnologia, Engenharia e Matemática) em sua comunidade. Envolvendo estudantes do mundo todo na área STEM, já foram impactados mais de 87.000 estudantes de 28 países diferentes.
+
+Alunos de 14 a 18 anos (do 9º ao 12º ano) projetam, constroem e programam robôs de tamanho industrial para participar de um jogo cheio de ação. Eles competem em um campo temático em um jogo anual que traz um novo desafio e oportunidades de aprendizado empolgantes para colaborar e resolver problemas ano após ano. Além da competição em si, a FRC é movida por uma filosofia muito forte. A FIRST promove valores como Gracious Professionalism, que incentiva o respeito, a ética e a colaboração mesmo em situações competitivas, e Coopertition, que combina cooperação e competição. Isso significa que, mesmo competindo entre si, as equipes frequentemente se ajudam, emprestam peças, compartilham conhecimento e apoiam umas às outras para que todos possam competir em alto nível. Essa combinação de tecnologia, criatividade, competição e valores humanos faz da FRC uma das experiências educacionais mais completas e marcantes que existem.
+
+Logo da FIRST® Robotics Competition
+
+PREMIAÇÃO:
+- Impact Award: celebra a equipe que melhor representa a missão da FIRST: inspirar outras pessoas através da ciência, tecnologia e ações de impacto comunitário. Ele reconhece equipes que vão além da competição, construindo projetos educacionais duradouros, promovendo inclusão e ampliando a cultura STEM em sua região. É considerado o maior prêmio da FIRST.
+- Engineering Inspiration Award: destaca equipes com um trabalho excepcional de promoção da ciência e engenharia em sua comunidade, estimulando a participação estudantil e criando iniciativas sustentáveis.
+- Rookie All-Star Award: reconhece a equipe estreante que demonstra organização, impacto, dedicação e potencial semelhante ao de equipes já experientes.
+- Quality Award: valoriza robôs bem construídos, consistentes e com alta qualidade mecânica.
+- Industrial Design Award: reconhece robôs cujo design e integração funcional se destacam pelo profissionalismo e eficiência.
+- Innovation in Control Award: celebra soluções inovadoras em sistemas de controle e programação, incluindo o uso inteligente de sensores, automações e algoritmos.
+- Creativity Award: destaca abordagens ou mecanismos originais que fogem do comum.
+- Excellence in Engineering: reconhece sistemas de engenharia bem planejados, bem documentados e extremamente eficazes.
+- Autonomous Award: direcionado à equipe com melhor estratégia e execução no período autônomo.
+- Gracious Professionalism Award: destaca equipes que demonstram ética, respeito e colaboração dentro e fora da arena.
+- Team Spirit Award: celebra entusiasmo, energia e identidade da equipe.
+- Judge's Award: é um prêmio especial que os juízes concedem quando encontram algum aspecto muito único ou extraordinário em uma equipe que não se encaixa em nenhuma categoria tradicional.
+- Winner: As equipes vencedoras do evento, as três que formam a aliança campeã.
+- Finalist: a aliança que termina em segundo lugar recebe.
+- Highest Rookie Seed: concedido à equipe estreante que termina mais bem colocada na classificação geral ao final das partidas qualificatórias.
+
+Desafio da temporada FRC:
+Em Rebuilt™ apresentado por Haas, um novo desafio com lançamento previsto para 10 de janeiro de 2026, as equipes da FIRST Robotics Competition usarão suas habilidades de engenharia para reimaginar o passado. REBUILT faz parte da temporada FIRST AGE™ apresentada pela Qualcomm.
+
+Dig into REBUILT
+https://www.youtube.com/watch?v=0JaguGctF1A
+
+Cada artefato que descobrimos guarda uma história. Cada ferramenta, cada inovação, cada obra de arte nos conecta às pessoas e ideias que nos precederam. Usando habilidades STEM e trabalho em equipe, hoje podemos explorar descobertas mais a fundo do que nunca.
+
+Partindo de um kit de peças, equipes de estudantes do ensino médio projetam, programam e constroem robôs de tamanho industrial para jogar um jogo cheio de ação, lançado em janeiro. Eles competem em um campo temático como parte de uma aliança de três equipes, no espírito da Cooperação®. Em um aprendizado 360º guiado por mentores adultos, cada equipe da FIRST® Robotics Competition também cria uma identidade própria, arrecada fundos para atingir seus objetivos e promove o interesse por STEM (Ciência, Tecnologia, Engenharia e Matemática) em sua comunidade.
+
+Logo da temporada REBUILT
+
+
+
+
+
