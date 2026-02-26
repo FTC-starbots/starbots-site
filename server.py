@@ -4,7 +4,7 @@ import socketserver
 import os
 from urllib.parse import unquote
 
-PORT = 8000
+PORT = 7600
 
 class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def translate_path(self, path):
@@ -18,7 +18,7 @@ class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         path = unquote(path)
         
         # Verifica se o path começa com /images/, /fonts/, /logos/ ou /teams/
-        if path.startswith('/images/') or path.startswith('/fonts/') or path.startswith('/logos/') or path.startswith('/teams/'):
+        if path.startswith('/images/') or path.startswith('/fonts/') or path.startswith('/logos/') or path.startswith('/teams/') or path.startswith('/videos/') or path.startswith('/mentorias/'):
             # Mapeia para a pasta public/
             file_path = path.lstrip('/')
             full_path = os.path.join(os.getcwd(), 'public', file_path)

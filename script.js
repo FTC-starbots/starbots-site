@@ -141,17 +141,21 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Lazy loading for images (when real images are added)
+// Lazy loading: só troca src por data-src em imagens que tenham data-src (evita apagar imagens que já têm src)
 if ('loading' in HTMLImageElement.prototype) {
-    const images = document.querySelectorAll('img[loading="lazy"]');
+    const images = document.querySelectorAll('img[loading="lazy"][data-src]');
     images.forEach(img => {
-        img.src = img.dataset.src;
+        if (img.dataset.src) {
+            img.src = img.dataset.src;
+        }
     });
 } else {
-    // Fallback for browsers that don't support lazy loading
-    const script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-    document.body.appendChild(script);
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    if (lazyImages.length > 0) {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+        document.body.appendChild(script);
+    }
 }
 
 // Equipes Cards Toggle

@@ -15,7 +15,28 @@
     <!-- Header/Navigation (carregado via JS) -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Video Background) -->
+    <section class="hero hero-video-bg">
+        <video class="hero-bg-video" autoplay muted loop playsinline>
+            <source src="/videos/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content-wrapper hero-centered">
+            <div class="hero-text hero-text-center">
+                <h1 class="hero-title hero-title-large">STARBOTS</h1>
+                <p class="hero-subtitle hero-subtitle-center">
+                    Equipe de robótica da Escola SESI Betim-MG. Exploramos, inovamos e inspiramos por meio da robótica educacional e dos valores da FIRST®.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/quem-somos" class="cta-button">Conheça nossa equipe</a>
+                    <a href="/sobre-first" class="cta-button-outline">Saiba mais sobre a FIRST®</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    ========== BACKUP HERO ANTIGO (imagem de fundo) ==========
     <section class="hero" style="background-image: url('/images/ftc-image.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content-wrapper">
@@ -32,136 +53,54 @@
             </div>
         </div>
     </section>
+    ========== FIM DO BACKUP =========
+    -->
 
     <!-- Patrocinadores Section -->
     <section class="patrocinadores-section">
         <div class="container">
             <div class="patrocinadores-grid">
-                <div class="patrocinador-logo">
+                <a href="/parceiros#parceiro-sesi-senai" class="patrocinador-logo" title="Ver SESI e SENAI na página de parceiros">
+                    <img src="/logos/sesi senai.png" alt="Logo SESI e SENAI">
+                </a>
+                <a href="/parceiros#parceiro-stemos" class="patrocinador-logo" title="Ver stemOS na página de parceiros">
                     <img src="/logos/stemospng copiar.webp" alt="Logo stemOS">
-                </div>
-                <div class="patrocinador-logo">
+                </a>
+                <a href="/parceiros#parceiro-family-systems" class="patrocinador-logo" title="Ver Family Systems na página de parceiros">
                     <img src="/logos/familiypng copiar.png" alt="Logo Family Systems">
-                </div>
-                <div class="patrocinador-logo">
+                </a>
+                <a href="/parceiros#parceiro-hinova" class="patrocinador-logo" title="Ver Hinova na página de parceiros">
                     <img src="/logos/hinovapng copiar.webp" alt="Logo Hinova">
-                </div>
-                <div class="patrocinador-logo">
+                </a>
+                <a href="/parceiros#parceiro-jhonny-bravo" class="patrocinador-logo" title="Ver Jhonny Bravo na página de parceiros">
                     <img src="/logos/jhonybpng.png" alt="Logo Jhonny Bravo">
-                </div>
-                <div class="patrocinador-logo">
+                </a>
+                <a href="/parceiros#parceiro-maria-angelina" class="patrocinador-logo" title="Ver Maria Angelina na página de parceiros">
                     <img src="/logos/marialogo.png" alt="Logo Maria Angelina">
-                </div>
-                <div class="patrocinador-logo">
+                </a>
+                <a href="/parceiros#parceiro-abrasil" class="patrocinador-logo" title="Ver Abrasil na página de parceiros">
                     <img src="/logos/abrasil.webp" alt="Logo Abrasil">
-                </div>
-                <div class="patrocinador-logo">
+                </a>
+                <a href="/parceiros#parceiro-guzel" class="patrocinador-logo" title="Ver Guzel na página de parceiros">
                     <img src="/logos/guzel.webp" alt="Logo Guzel">
-                </div>
-                <div class="patrocinador-logo">
+                </a>
+                <a href="/parceiros#parceiro-rise-idiomas" class="patrocinador-logo" title="Ver Rise Idiomas na página de parceiros">
                     <img src="/logos/rise.png" alt="Logo Rise Idiomas">
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Nossas Equipes Section -->
-    <section class="nossas-equipes-section">
+    <!-- Um Recadinho da Starbots Section -->
+    <section class="recadinho-section">
         <div class="container">
-            <div class="equipes-header">
-                <span class="equipes-label">NOSSAS EQUIPES</span>
-                <h2 class="equipes-title">Conheça Nossas Equipes</h2>
-                <p class="equipes-description">
-                    A STARBOTS participa de três modalidades da FIRST®, oferecendo oportunidades de aprendizado em robótica para diferentes faixas etárias. Cada equipe desenvolve habilidades únicas e contribui para o crescimento da comunidade robótica.
-                </p>
+            <div class="recadinho-header">
+                <span class="recadinho-label">INCLUSÃO E ACESSIBILIDADE</span>
+                <h2 class="recadinho-title">Robótica que fala todas as línguas</h2>
             </div>
-            
-            <div class="equipes-cards">
-                <button class="equipe-card active" data-equipe="fll">
-                    <span>FIRST® LEGO® League</span>
-                </button>
-                <button class="equipe-card" data-equipe="ftc">
-                    <span>FIRST® Tech Challenge</span>
-                </button>
-                <button class="equipe-card" data-equipe="frc">
-                    <span>FIRST® Robotics Competition</span>
-                </button>
-            </div>
-
-            <div class="equipe-content">
-                <!-- Conteúdo FLL -->
-                <div class="equipe-details active" id="fll-content">
-                    <div class="equipe-details-grid">
-                        <div class="equipe-details-text">
-                            <h3>FIRST® LEGO® League</h3>
-                            <p>A <strong>FLL (FIRST® LEGO® League)</strong> apresenta STEM (Ciência, Tecnologia, Engenharia e Matemática) para crianças de 5 a 16 anos por meio de aprendizado prático, divertido e empolgante. Os participantes adquirem experiências práticas de resolução de problemas por meio de um programa global de robótica guiado, utilizando a tecnologia LEGO®.</p>
-                            <p>Na modalidade <strong>FLL</strong> as equipes são formadas por até 10 competidores, que precisam desenvolver um robô LEGO para cumprir as missões do Desafio do Robô. Além disso, as equipes necessitam encontrar uma solução inovadora, a partir de uma pesquisa alinhada com o tema da temporada.</p>
-                            <div class="equipe-info">
-                                <div class="info-item">
-                                    <strong>Idade:</strong> 5 a 16 anos (varia por região)
-                                </div>
-                                <div class="info-item">
-                                    <strong>Equipe:</strong> Até 10 competidores
-                                </div>
-                                <div class="info-item">
-                                    <strong>Impacto:</strong> Mais de 99.000 estudantes de 81 países
-                                </div>
-                            </div>
-                        </div>
-                        <div class="equipe-details-visual">
-                            <img src="/teams/fll.webp" alt="Equipe STARBOTS FLL" class="equipe-image">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Conteúdo FTC -->
-                <div class="equipe-details" id="ftc-content">
-                    <div class="equipe-details-grid">
-                        <div class="equipe-details-text">
-                            <h3>FIRST® Tech Challenge</h3>
-                            <p>Os alunos da <strong>FTC (FIRST® Tech Challenge)</strong> trabalham em conjunto com seus mentores para projetar e construir robôs dinâmicos que competem em um jogo emocionante, lançado todo mês de setembro. Dentro e fora de campo, os alunos desenvolvem habilidades em STEAM (Ciência, Tecnologia, Engenharia, Arte e Matemática).</p>
-                            <p>Alunos de 12 a 18 anos (do 7º EF ao 2° EM) projetam e constroem um robô competitivo e dinâmico a partir de um kit de peças. Um jogo de robótica temático anual traz um novo desafio e oportunidades de aprendizado empolgantes para colaborar e resolver problemas ano após ano.</p>
-                            <div class="equipe-info">
-                                <div class="info-item">
-                                    <strong>Idade:</strong> 12 a 18 anos (7º EF ao 2° EM)
-                                </div>
-                                <div class="info-item">
-                                    <strong>Equipe:</strong> Até 10 competidores
-                                </div>
-                                <div class="info-item">
-                                    <strong>Impacto:</strong> Mais de 597.000 estudantes de 91 países
-                                </div>
-                            </div>
-                        </div>
-                        <div class="equipe-details-visual">
-                            <img src="/teams/ftc.webp" alt="Equipe STARBOTS FTC" class="equipe-image">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Conteúdo FRC -->
-                <div class="equipe-details" id="frc-content">
-                    <div class="equipe-details-grid">
-                        <div class="equipe-details-text">
-                            <h3>FIRST® Robotics Competition</h3>
-                            <p>Partindo de um kit de peças, equipes de estudantes do Ensino Médio projetam, programam e constroem robôs de tamanho industrial para jogar um jogo cheio de ação, lançado em janeiro. Eles competem em um campo temático como parte de uma aliança de três equipes, no espírito da <strong>Cooperação®</strong>.</p>
-                            <p>Alunos de 14 a 18 anos (do 9º ao 12º ano) projetam, constroem e programam robôs de tamanho industrial para participar de um jogo cheio de ação. A <strong>FRC</strong> é movida por uma filosofia muito forte, promovendo valores como <strong>Gracious Professionalism</strong> e <strong>Coopertition</strong>.</p>
-                            <div class="equipe-info">
-                                <div class="info-item">
-                                    <strong>Idade:</strong> 14 a 18 anos (9º ao 12º ano)
-                                </div>
-                                <div class="info-item">
-                                    <strong>Equipe:</strong> Equipes maiores
-                                </div>
-                                <div class="info-item">
-                                    <strong>Impacto:</strong> Mais de 87.000 estudantes de 28 países
-                                </div>
-                            </div>
-                        </div>
-                        <div class="equipe-details-visual">
-                            <img src="/teams/frc.webp" alt="Equipe STARBOTS FRC" class="equipe-image">
-                        </div>
-                    </div>
+            <div class="recadinho-video-wrapper">
+                <div class="recadinho-video-container">
+                    <iframe src="https://videj.com/embed/2xHGdX6O6w" frameborder="0" allowfullscreen title="Vídeo Starbots - Videj"></iframe>
                 </div>
             </div>
         </div>
@@ -183,7 +122,7 @@
                         <div class="stat-label">anos de experiência desde 2018</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">20+</div>
+                        <div class="stat-number">30+</div>
                         <div class="stat-label">prêmios conquistados em competições</div>
                     </div>
                     <div class="stat-card">

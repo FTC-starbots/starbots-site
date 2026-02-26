@@ -27,7 +27,7 @@
                     </p>
                     <div class="mentorias-hero-actions">
                         <a href="#como-funciona" class="cta-button">Como funciona</a>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVd_ZV2N5W38NZ3HyTGsuY-q2gYKbBh4XIttNgGy9e6m_EAQ/viewform?usp=publish-editor" target="_blank" class="mentorias-hero-link">Solicitar mentoria →</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfVd_ZV2N5W38NZ3HyTGsuY-q2gYKbBh4XIttNgGy9e6m_EAQ/viewform?usp=publish-editor" target="_blank" class="cta-button cta-button-outline">Solicitar mentoria</a>
                     </div>
                 </div>
                 <div class="mentorias-hero-visual">
@@ -274,6 +274,43 @@
         </div>
     </section>
 
+    <!-- Depoimentos Section -->
+    <section class="mentorias-depoimentos-section">
+        <div class="container">
+            <div class="mentorias-depoimentos-header">
+                <span class="mentorias-section-label">QUEM JÁ PARTICIPOU</span>
+                <h2 class="mentorias-section-title">O que dizem nossos mentorados</h2>
+                <p class="mentorias-section-description">
+                    Veja o que equipes que já passaram pelo nosso programa de mentoria têm a dizer sobre a experiência.
+                </p>
+            </div>
+
+            <div class="mentorias-depoimentos-grid">
+                <div class="mentorias-depoimento-card">
+                    <button type="button" class="depoimento-img-wrapper depoimento-img-clickable" aria-label="Abrir depoimento em tamanho completo" data-full-img="/mentorias/print-mentorias.png">
+                        <img src="/mentorias/print-mentorias.png" alt="Depoimento da equipe DNA Bots sobre a mentoria da Starbots" loading="lazy">
+                        <span class="depoimento-expand-hint">Clique para ampliar</span>
+                    </button>
+                    <div class="depoimento-info">
+                        <span class="depoimento-equipe">DNA Bots #13501</span>
+                        <span class="depoimento-modalidade">FTC</span>
+                    </div>
+                </div>
+
+                <!-- Adicione mais cards aqui futuramente -->
+                <!-- <div class="mentorias-depoimento-card">
+                    <div class="depoimento-img-wrapper">
+                        <img src="/mentorias/outro-print.png" alt="Depoimento" loading="lazy">
+                    </div>
+                    <div class="depoimento-info">
+                        <span class="depoimento-equipe">Nome da Equipe</span>
+                        <span class="depoimento-modalidade">FLL</span>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="mentorias-cta-section">
         <div class="container">
@@ -304,11 +341,58 @@
         </div>
     </section>
 
+    <!-- Lightbox para print completa -->
+    <div id="depoimento-lightbox" class="depoimento-lightbox" aria-hidden="true" role="dialog" aria-label="Depoimento em tamanho completo">
+        <div class="depoimento-lightbox-backdrop"></div>
+        <div class="depoimento-lightbox-content">
+            <button type="button" class="depoimento-lightbox-close" aria-label="Fechar">&times;</button>
+            <img src="" alt="" class="depoimento-lightbox-img">
+        </div>
+    </div>
+
     <!-- Footer (carregado via JS) -->
     <div id="footer-placeholder"></div>
 
     <script src="/js/components.js"></script>
     <script src="/js/animations.js"></script>
     <script src="/script.js"></script>
+    <script>
+        (function() {
+            var lightbox = document.getElementById('depoimento-lightbox');
+            var lightboxImg = lightbox && lightbox.querySelector('.depoimento-lightbox-img');
+            var backdrop = lightbox && lightbox.querySelector('.depoimento-lightbox-backdrop');
+            var closeBtn = lightbox && lightbox.querySelector('.depoimento-lightbox-close');
+
+            function openLightbox(src, alt) {
+                if (!lightbox || !lightboxImg) return;
+                lightboxImg.src = src;
+                lightboxImg.alt = alt || 'Depoimento em tamanho completo';
+                lightbox.classList.add('depoimento-lightbox-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                if (!lightbox) return;
+                lightbox.classList.remove('depoimento-lightbox-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('.depoimento-img-clickable').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var src = this.getAttribute('data-full-img');
+                    var alt = (this.querySelector('img') && this.querySelector('img').alt) || '';
+                    if (src) openLightbox(src, alt);
+                });
+            });
+
+            if (backdrop) backdrop.addEventListener('click', closeLightbox);
+            if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && lightbox && lightbox.classList.contains('depoimento-lightbox-open')) closeLightbox();
+            });
+        })();
+    </script>
 </body>
 </html>
