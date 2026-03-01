@@ -242,35 +242,44 @@ body {
     background: rgba(0, 0, 0, 0.05);
 }
 
-/* Modal formulário de teste */
+/* Modal formulário de teste - no body para centralizar na viewport */
 .modal-form-contato {
     position: fixed;
-    inset: 0;
-    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    box-sizing: border-box;
 }
 
 .modal-form-contato[hidden] {
-    display: none;
+    display: none !important;
 }
 
 .modal-form-backdrop {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-form-box {
     position: relative;
+    z-index: 1;
     background: var(--bg-light, #fff);
     border-radius: 12px;
     padding: 1.5rem 2rem;
     max-width: 420px;
     width: 100%;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
 }
 
 .modal-form-close {

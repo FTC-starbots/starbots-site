@@ -54,6 +54,11 @@ function initTestFormModal() {
     const statusEl = document.getElementById('modal-form-status');
     if (!btn || !modal || !form) return;
 
+    // Modal dentro do header herda o containing block do fixed (backdrop-filter). Move para body para centralizar na viewport.
+    if (modal.parentNode !== document.body) {
+        document.body.appendChild(modal);
+    }
+
     function openModal() {
         modal.removeAttribute('hidden');
         document.body.style.overflow = 'hidden';
