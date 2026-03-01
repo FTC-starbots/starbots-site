@@ -54,13 +54,30 @@ O botão **"Testar formulário"** e a página **/contatos-test** dependem da API
 
 Para testar o formulário e a API localmente:
 
-1. Instale as dependências: **`npm install`** (instala `@vercel/blob` e outras)
-2. Instale o [Vercel CLI](https://vercel.com/cli): `npm i -g vercel`
-3. Na pasta do projeto, crie `.env.local` com: `BLOB_READ_WRITE_TOKEN=seu_token`
-4. Rode: **`vercel dev`**
-5. Acesse o site na URL que o Vercel mostrar (ex.: http://localhost:3000)
+1. Instale o [Vercel CLI](https://vercel.com/cli): `npm i -g vercel`
+2. Na pasta do projeto, crie `.env.local` com as variáveis necessárias (veja `.env.example`), incluindo `BLOB_READ_WRITE_TOKEN` e, para o dashboard, `SESSION_SECRET`, `ALLOWED_LOGIN_EMAIL` e `ALLOWED_LOGIN_PASSWORD`
+3. Rode **`npm install`** (se ainda não tiver instalado) e depois **`vercel dev`**
+4. Acesse o site na URL que o Vercel mostrar (ex.: http://localhost:3000)
+
+**Se aparecer erro "Cannot find package '@vercel/blob'":** execute **`npm install`** na raiz do projeto e depois **`vercel dev`** de novo.
 
 No **deploy na Vercel**, a API funciona normalmente (configure `BLOB_READ_WRITE_TOKEN` nas variáveis de ambiente do projeto).
+
+## 🔐 Dashboard (login sem link no site)
+
+Existe uma área restrita para ver e adicionar contatos, **sem nenhum link no site**. Só é possível acessar digitando a URL.
+
+1. Acesse **`/login`** (ex.: http://localhost:3000/login).
+2. Use a conta permitida (e-mail e senha configurados no `.env.local`).
+3. Após o login, você é redirecionado para **`/dashboard`**, onde pode ver a lista de contatos e adicionar novos.
+
+No `.env.local` (e nas variáveis de ambiente do projeto na Vercel), configure:
+
+- `SESSION_SECRET` — string aleatória longa. No PowerShell (Windows): `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`
+- `ALLOWED_LOGIN_EMAIL` — e-mail da conta (ex.: ftcstarbots@gmail.com)
+- `ALLOWED_LOGIN_PASSWORD` — senha da conta
+
+**Importante:** não commite a senha; use apenas em `.env.local` e nas variáveis de ambiente da Vercel.
 
 ## 🐛 Problemas?
 

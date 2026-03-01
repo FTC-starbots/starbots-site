@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>Dashboard - Contatos | Starbots</title>
+    <link rel="icon" type="image/webp" href="images/afonso.webp">
+    <link rel="stylesheet" href="styles.css?v=20250301">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: Inter, sans-serif; background: #f5f5f5; }
+        .dashboard-header { background: #1a1a1a; color: #fff; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+        .dashboard-header h1 { margin: 0; font-size: 1.15rem; font-weight: 600; }
+        .dashboard-header a { color: #fff; text-decoration: none; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; font-size: 0.9rem; }
+        .dashboard-header a:hover { background: rgba(255,255,255,0.1); }
+        .dashboard-main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+        .dashboard-section { background: #fff; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .dashboard-section h2 { margin: 0 0 1rem; font-size: 1.2rem; }
+        .contatos-list { display: flex; flex-direction: column; gap: 0.75rem; }
+        .contato-card { background: #f9f9f9; border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid #eee; }
+        .contato-card strong { display: block; margin-bottom: 0.2rem; }
+        .contato-card .email { color: var(--accent-color, #2563eb); font-size: 0.95rem; }
+        .contato-card .mensagem { margin-top: 0.5rem; color: #555; font-size: 0.9rem; }
+        .contato-card .date { margin-top: 0.4rem; font-size: 0.8rem; color: #999; }
+        .form-add label { display: block; margin-top: 0.75rem; margin-bottom: 0.25rem; font-weight: 500; font-size: 0.9rem; }
+        .form-add input, .form-add textarea { width: 100%; padding: 0.5rem 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+        .form-add textarea { min-height: 80px; resize: vertical; }
+        .form-add button { margin-top: 1rem; padding: 0.6rem 1.2rem; background: var(--primary-color, #1a1a1a); color: #fff; border: none; border-radius: 6px; font-weight: 500; cursor: pointer; }
+        .form-add button:disabled { opacity: 0.6; cursor: not-allowed; }
+        .status-msg { margin-top: 0.75rem; font-size: 0.9rem; }
+        .status-msg.success { color: #0a0; }
+        .status-msg.error { color: #c00; }
+        .loading, .empty-msg { color: #666; padding: 1rem 0; }
+        .empty-msg { font-style: italic; }
+    </style>
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Dashboard — Contatos</h1>
+        <a href="#" id="btn-logout">Sair</a>
+    </header>
+    <main class="dashboard-main">
+        <section class="dashboard-section">
+            <h2>Adicionar contato</h2>
+            <form id="form-add-contact" class="form-add">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mensagem">Mensagem (opcional)</label>
+                <textarea id="mensagem" name="mensagem"></textarea>
+                <button type="submit" id="btn-add">Salvar contato</button>
+            </form>
+            <p id="form-status" class="status-msg" aria-live="polite"></p>
+        </section>
+        <section class="dashboard-section">
+            <h2>Lista de contatos</h2>
+            <div id="contatos-container">
+                <p class="loading">Carregando…</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        (function() {
+            var contatosContainer = document.getElementById('contatos-container');
+            var form = document.getElementById('form-add-contact');
+            var formStatus = document.getElementById('form-status');
+            var btnLogout = document.getElementById('btn-logout');
+
+            function escapeHtml(s) {
+                var div = document.createElement('div');
+                div.textContent = s;
+                return div.innerHTML;
+            }
+
+            function renderContacts(contacts) {
+                if (!contacts || contacts.length === 0) {
+                    contatosContainer.innerHTML = '<p class="empty-msg">Nenhum contato salvo.</p>';
+                    return;
+                }
+                contatosContainer.innerHTML = '<div class="contatos-list">' + contacts.map(function(c) {
+                    var html = '<div class="contato-card">';
+                    html += '<strong>' + escapeHtml(c.nome || '') + '</strong>';
+                    html += '<span class="email">' + escapeHtml(c.email || '') + '</span>';
+                    if (c.mensagem) html += '<p class="mensagem">' + escapeHtml(c.mensagem) + '</p>';
+                    if (c.createdAt) html += '<p class="date">' + new Date(c.createdAt).toLocaleString('pt-BR') + '</p>';
+                    html += '</div>';
+                    return html;
+                }).join('') + '</div>';
+            }
+
+            async function loadContacts() {
+                try {
+                    var res = await fetch('/api/contacts');
+                    var data = await res.json();
+                    if (res.ok) renderContacts(Array.isArray(data) ? data : []);
+                    else contatosContainer.innerHTML = '<p class="status-msg error">Erro ao carregar contatos.</p>';
+                } catch (e) {
+                    contatosContainer.innerHTML = '<p class="status-msg error">Erro de conexão.</p>';
+                }
+            }
+
+            async function checkAuth() {
+                try {
+                    var res = await fetch('/api/auth/me', { credentials: 'include' });
+                    if (res.status === 401) {
+                        window.location.href = '/login';
+                        return false;
+                    }
+                    return true;
+                } catch (e) {
+                    window.location.href = '/login';
+                    return false;
+                }
+            }
+
+            document.getElementById('btn-logout').addEventListener('click', async function(e) {
+                e.preventDefault();
+                try {
+                    await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+                } catch (err) {}
+                window.location.href = '/login';
+            });
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                formStatus.textContent = '';
+                formStatus.className = 'status-msg';
+                var btn = document.getElementById('btn-add');
+                btn.disabled = true;
+                try {
+                    var res = await fetch('/api/contacts', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            nome: form.nome.value.trim(),
+                            email: form.email.value.trim(),
+                            mensagem: form.mensagem ? form.mensagem.value.trim() : ''
+                        })
+                    });
+                    var data = await res.json().catch(function() { return {}; });
+                    if (res.ok) {
+                        formStatus.textContent = 'Contato salvo.';
+                        formStatus.className = 'status-msg success';
+                        form.reset();
+                        loadContacts();
+                    } else {
+                        formStatus.textContent = data.error || 'Erro ao salvar.';
+                        formStatus.className = 'status-msg error';
+                    }
+                } catch (err) {
+                    formStatus.textContent = 'Erro de conexão.';
+                    formStatus.className = 'status-msg error';
+                }
+                btn.disabled = false;
+            });
+
+            (async function init() {
+                var ok = await checkAuth();
+                if (!ok) return;
+                await loadContacts();
+            })();
+        })();
+    </script>
+</body>
+</html>
