@@ -6,6 +6,14 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/indicacoes-docs/(.*)",
+      "destination": "/public/indicacoes-docs/$1"
+    },
+    {
+      "source": "/public/(.*)",
+      "destination": "/public/$1"
+    },
+    {
       "source": "/images/(.*)",
       "destination": "/public/images/$1"
     },
@@ -16,6 +24,26 @@
     {
       "source": "/teams/(.*)",
       "destination": "/public/teams/$1"
+    },
+    {
+      "source": "/team-images/(.*)",
+      "destination": "/public/team-images/$1"
+    },
+    {
+      "source": "/mentorias/(.*)",
+      "destination": "/public/mentorias/$1"
+    },
+    {
+      "source": "/seasons/(.*)",
+      "destination": "/public/seasons/$1"
+    },
+    {
+      "source": "/awards/(.*)",
+      "destination": "/public/awards/$1"
+    },
+    {
+      "source": "/videos/(.*)",
+      "destination": "/public/videos/$1"
     },
     {
       "source": "/fonts/(.*)",
@@ -146,6 +174,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/:path*.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
         }
       ]
     }
