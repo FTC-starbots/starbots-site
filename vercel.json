@@ -6,6 +6,10 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/indicacoes-docs/(.*)",
+      "destination": "/public/indicacoes-docs/$1"
+    },
+    {
       "source": "/public/(.*)",
       "destination": "/public/$1"
     },
@@ -162,6 +166,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/:path*.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
         }
       ]
     }

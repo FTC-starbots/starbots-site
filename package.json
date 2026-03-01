@@ -4,16 +4,8 @@
   "description": "Site institucional do time de robótica Starbots",
   "scripts": {
     "build": "echo 'No build step required'"
+  },
+  "devDependencies": {
+    "pdf-to-png-converter": "^3.14.0"
   }
 }
-
-
-
-
-
-
-
-
-
-
-
