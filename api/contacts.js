@@ -44,7 +44,7 @@ export default async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       const blob = await get(BLOB_PATH, {
-        access: 'private',
+        access: 'public',
         token,
       }).catch(() => null);
 
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
       }
 
       const blob = await get(BLOB_PATH, {
-        access: 'private',
+        access: 'public',
         token,
       }).catch(() => null);
 
@@ -76,7 +76,7 @@ export default async function handler(req, res) {
       contacts.push(newContact);
 
       await put(BLOB_PATH, JSON.stringify(contacts, null, 2), {
-        access: 'private',
+        access: 'public',
         contentType: 'application/json',
         addRandomSuffix: false,
         allowOverwrite: true,
