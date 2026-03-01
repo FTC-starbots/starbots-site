@@ -69,11 +69,15 @@ class ComponentLoader {
      */
     async init() {
         // Carrega componentes em paralelo para melhor performance
-        await Promise.all([
+        // Contato não é carregado na página de parceiros (sem contato-placeholder)
+        const componentPromises = [
             this.injectComponent('header', 'header-placeholder'),
-            this.injectComponent('footer', 'footer-placeholder'),
-            this.injectComponent('contato', 'contato-placeholder')
-        ]);
+            this.injectComponent('footer', 'footer-placeholder')
+        ];
+        if (document.getElementById('contato-placeholder')) {
+            componentPromises.push(this.injectComponent('contato', 'contato-placeholder'));
+        }
+        await Promise.all(componentPromises);
 
         // Menu mobile e efeitos do header são inicializados em script.js (evento componentsLoaded)
 
