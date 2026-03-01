@@ -1,0 +1,7 @@
+# Dependências e ambiente
+node_modules/
+.env
+.env.local
+.env*.local
+
+# Ver .env.example para variáveis necessárias (BLOB_READ_WRITE_TOKEN).

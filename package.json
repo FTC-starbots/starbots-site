@@ -4,16 +4,8 @@
   "description": "Site institucional do time de robótica Starbots",
   "scripts": {
     "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.3.0"
   }
 }
-
-
-
-
-
-
-
-
-
-
-

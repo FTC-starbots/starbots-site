@@ -223,6 +223,126 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.nav-button-testar-form {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.nav-button-testar-form:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Modal formulário de teste */
+.modal-form-contato {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.modal-form-contato[hidden] {
+    display: none;
+}
+
+.modal-form-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-form-box {
+    position: relative;
+    background: var(--bg-light, #fff);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-form-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.modal-form-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.modal-form-desc {
+    margin: 0 0 1.25rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.modal-form-form label {
+    display: block;
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.modal-form-form input,
+.modal-form-form textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.modal-form-form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.modal-form-actions {
+    margin-top: 1.25rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.modal-form-cancel {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.modal-form-status {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 1.5em;
+}
+
+.modal-form-status.success { color: #0a0; }
+.modal-form-status.error { color: #c00; }
+
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;

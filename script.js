@@ -45,9 +45,67 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenuAndHeader();
     initHeaderScrollEffect();
 });
+function initTestFormModal() {
+    const btn = document.getElementById('btn-testar-formulario');
+    const modal = document.getElementById('modal-form-contato');
+    const closeBtn = document.getElementById('modal-form-close');
+    const cancelBtn = document.getElementById('modal-form-cancel');
+    const form = document.getElementById('form-contato-test');
+    const statusEl = document.getElementById('modal-form-status');
+    if (!btn || !modal || !form) return;
+
+    function openModal() {
+        modal.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+        statusEl.textContent = '';
+        statusEl.className = 'modal-form-status';
+    }
+    function closeModal() {
+        modal.setAttribute('hidden', '');
+        document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', openModal);
+    closeBtn && closeBtn.addEventListener('click', closeModal);
+    cancelBtn && cancelBtn.addEventListener('click', closeModal);
+    modal.querySelector('.modal-form-backdrop').addEventListener('click', closeModal);
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.textContent = 'Enviando...';
+        statusEl.className = 'modal-form-status';
+        const payload = {
+            nome: form.nome.value.trim(),
+            email: form.email.value.trim(),
+            mensagem: (form.mensagem && form.mensagem.value) ? form.mensagem.value.trim() : ''
+        };
+        try {
+            const res = await fetch('/api/contacts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json().catch(() => ({}));
+            if (res.ok) {
+                statusEl.innerHTML = 'Salvo com sucesso! <a href="/contatos-test">Ver lista de contatos</a>';
+                statusEl.className = 'modal-form-status success';
+                form.reset();
+                setTimeout(closeModal, 2500);
+            } else {
+                statusEl.textContent = data.error || 'Erro ao salvar. Tente de novo.';
+                statusEl.className = 'modal-form-status error';
+            }
+        } catch (err) {
+            statusEl.textContent = 'Erro de rede. Verifique se a API está disponível.';
+            statusEl.className = 'modal-form-status error';
+        }
+    });
+}
+
 document.addEventListener('componentsLoaded', () => {
     initMobileMenuAndHeader();
     initHeaderScrollEffect();
+    initTestFormModal();
 });
 
 // Smooth scroll for anchor links

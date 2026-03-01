@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>Contatos (teste) - Starbots FTC</title>
+    <link rel="icon" type="image/webp" href="images/afonso.webp">
+    <link rel="apple-touch-icon" href="images/afonso.webp">
+    <link rel="stylesheet" href="styles.css?v=20250301">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .contatos-test-section { padding: 4rem 0; margin-top: 80px; }
+        .contatos-test-section h1 { margin-bottom: 0.5rem; }
+        .contatos-test-section .subtitle { color: #666; margin-bottom: 2rem; }
+        .contatos-list { display: flex; flex-direction: column; gap: 1rem; }
+        .contato-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .contato-card strong { display: block; margin-bottom: 0.25rem; }
+        .contato-card .email { color: var(--accent-color, #2563eb); font-size: 0.95rem; }
+        .contato-card .mensagem { margin-top: 0.5rem; color: #555; font-size: 0.9rem; }
+        .contato-card .date { margin-top: 0.5rem; font-size: 0.8rem; color: #999; }
+        .contatos-loading, .contatos-error { padding: 2rem; text-align: center; color: #666; }
+        .contatos-error { color: #c00; }
+        .contatos-empty { padding: 2rem; text-align: center; color: #666; }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <section class="contatos-test-section">
+        <div class="container">
+            <h1 class="section-title">Contatos salvos (teste)</h1>
+            <p class="subtitle">Dados enviados pelo formulário de teste, armazenados no Vercel Blob. <a href="/">Voltar ao início</a></p>
+            <div id="contatos-list-container">
+                <p class="contatos-loading">Carregando...</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js?v=20250301"></script>
+    <script src="js/animations.js?v=20250301"></script>
+    <script src="script.js?v=20250301"></script>
+    <script>
+        (function() {
+            const container = document.getElementById('contatos-list-container');
+            if (!container) return;
+
+            async function load() {
+                try {
+                    const res = await fetch('/api/contacts');
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.error || 'Erro ao carregar');
+                    render(Array.isArray(data) ? data : []);
+                } catch (err) {
+                    container.innerHTML = '<p class="contatos-error">' + (err.message || 'Erro ao carregar contatos.') + '</p>';
+                }
+            }
+
+            function render(contacts) {
+                if (contacts.length === 0) {
+                    container.innerHTML = '<p class="contatos-empty">Nenhum contato salvo ainda.</p>';
+                    return;
+                }
+                container.innerHTML = '<div class="contatos-list">' + contacts.map(function(c) {
+                    var html = '<div class="contato-card">';
+                    html += '<strong>' + escapeHtml(c.nome || '') + '</strong>';
+                    html += '<span class="email">' + escapeHtml(c.email || '') + '</span>';
+                    if (c.mensagem) html += '<p class="mensagem">' + escapeHtml(c.mensagem) + '</p>';
+                    if (c.createdAt) html += '<p class="date">' + new Date(c.createdAt).toLocaleString('pt-BR') + '</p>';
+                    html += '</div>';
+                    return html;
+                }).join('') + '</div>';
+            }
+
+            function escapeHtml(s) {
+                var div = document.createElement('div');
+                div.textContent = s;
+                return div.innerHTML;
+            }
+
+            document.addEventListener('componentsLoaded', load);
+            if (document.readyState === 'complete') load(); else window.addEventListener('load', load);
+        })();
+    </script>
+</body>
+</html>

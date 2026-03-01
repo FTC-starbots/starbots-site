@@ -47,7 +47,7 @@
     },
     {
       "source": "/parceiros",
-      "destination": "/parceiros.html"
+      "destination": "/parceiros.html"},{"source":"/contatos-test","destination":"/contatos-test.html"
     }
   ],
   "headers": [
