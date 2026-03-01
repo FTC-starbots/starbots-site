@@ -5,7 +5,7 @@
   "scripts": {
     "build": "echo 'No build step required'"
   },
-  "devDependencies": {
-    "pdf-to-png-converter": "^3.14.0"
+  "dependencies": {
+    "@vercel/blob": "^2.3.0"
   }
 }

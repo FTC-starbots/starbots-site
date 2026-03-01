@@ -50,6 +50,10 @@
       "destination": "/public/fonts/$1"
     },
     {
+      "source": "/videos/(.*)",
+      "destination": "/public/videos/$1"
+    },
+    {
       "source": "/favicon.ico",
       "destination": "/public/images/afonso.webp"
     },
@@ -76,6 +80,10 @@
     {
       "source": "/parceiros",
       "destination": "/parceiros.html"
+    },
+    {
+      "source": "/contatos-test",
+      "destination": "/contatos-test.html"
     }
   ],
   "headers": [

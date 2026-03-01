@@ -102,10 +102,13 @@ class AnimationController {
      * Observa todos os elementos animáveis
      */
     observeElements() {
+        if (!this.observer) {
+            this.createObserver();
+        }
         this.animatableSelectors.forEach(selector => {
             const elements = document.querySelectorAll(selector);
             elements.forEach(el => {
-                if (!this.animatedElements.has(el)) {
+                if (el && !this.animatedElements.has(el) && this.observer) {
                     this.observer.observe(el);
                 }
             });
@@ -193,6 +196,9 @@ class AnimationController {
      * Re-observa elementos (útil após carregar conteúdo dinâmico)
      */
     refresh() {
+        if (!this.observer) {
+            this.createObserver();
+        }
         this.observeElements();
     }
 

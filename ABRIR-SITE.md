@@ -48,9 +48,26 @@ Se quiser testar no celular na mesma rede Wi-Fi:
 - ✅ As animações devem aparecer ao rolar a página
 - ✅ Todos os cards devem ter efeito hover
 
+## 🔧 Formulário de contato e API (`/api/contacts`)
+
+O botão **"Testar formulário"** e a página **/contatos-test** dependem da API serverless. Em servidores **apenas estáticos** (Python, `npx serve`, ou abrir `index.html` direto), a rota `/api/contacts` **não existe** e você verá **501 (Unsupported method)** ao enviar o formulário.
+
+Para testar o formulário e a API localmente:
+
+1. Instale as dependências: **`npm install`** (instala `@vercel/blob` e outras)
+2. Instale o [Vercel CLI](https://vercel.com/cli): `npm i -g vercel`
+3. Na pasta do projeto, crie `.env.local` com: `BLOB_READ_WRITE_TOKEN=seu_token`
+4. Rode: **`vercel dev`**
+5. Acesse o site na URL que o Vercel mostrar (ex.: http://localhost:3000)
+
+No **deploy na Vercel**, a API funciona normalmente (configure `BLOB_READ_WRITE_TOKEN` nas variáveis de ambiente do projeto).
+
 ## 🐛 Problemas?
 
 - **Python não encontrado**: Instale Python de python.org
 - **Porta 8000 ocupada**: Use outra porta: `python -m http.server 8080`
 - **CSS não carrega**: Certifique-se de que `styles.css` está na mesma pasta
+- **501 no formulário**: Use `vercel dev` para rodar a API localmente (veja seção acima)
+- **WebSocket localhost:8081**: Extensão ou ferramenta de live-reload; pode ignorar
+- **Google Drive iframe bloqueado**: Política do Google; use o link "Abrir no Drive" abaixo do vídeo
 

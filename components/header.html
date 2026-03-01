@@ -19,8 +19,31 @@
                     <li><a href="/indicacoes">Indicações</a></li>
                     <li><a href="/parceiros">Parceiros</a></li>
                 </ul>
+                <button type="button" class="nav-button-testar-form" id="btn-testar-formulario" aria-label="Testar formulário de contato">Testar formulário</button>
                 <a href="/faca-parte" class="nav-button-faca-parte">Faça Parte</a>
             </div>
         </div>
     </nav>
+    <!-- Modal Testar formulário (temporário) -->
+    <div id="modal-form-contato" class="modal-form-contato" role="dialog" aria-modal="true" aria-labelledby="modal-form-title" hidden>
+        <div class="modal-form-backdrop"></div>
+        <div class="modal-form-box">
+            <button type="button" class="modal-form-close" id="modal-form-close" aria-label="Fechar">×</button>
+            <h2 id="modal-form-title" class="modal-form-title">Testar formulário de contato</h2>
+            <p class="modal-form-desc">Preencha para salvar no Blob (teste).</p>
+            <form id="form-contato-test" class="modal-form-form">
+                <label for="contato-nome">Nome</label>
+                <input type="text" id="contato-nome" name="nome" required placeholder="Seu nome">
+                <label for="contato-email">E-mail</label>
+                <input type="email" id="contato-email" name="email" required placeholder="seu@email.com">
+                <label for="contato-mensagem">Mensagem (opcional)</label>
+                <textarea id="contato-mensagem" name="mensagem" rows="3" placeholder="Sua mensagem"></textarea>
+                <div class="modal-form-actions">
+                    <button type="button" class="modal-form-cancel" id="modal-form-cancel">Cancelar</button>
+                    <button type="submit" class="cta-button">Enviar</button>
+                </div>
+            </form>
+            <p id="modal-form-status" class="modal-form-status" aria-live="polite"></p>
+        </div>
+    </div>
 </header>
