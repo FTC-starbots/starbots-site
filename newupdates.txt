@@ -4,9 +4,16 @@ video under ctrl
 
 sobre a first icones colotidos
 conheça as modalidades da first
+(* Tirar do home o “conheça nossas equipes”, porque o site é só sobre a starbots ftc, e deixar para conhecer as modalidades da first na aba de conheça a first)
+
+Se tiver como clicar em cima do parceiro e ir direto pro texto dele (adicionar o SESI SENAI, já deixei o texto deles no Notion)
 
 sinos valley - premiações
 
-forms de mentoria,
+forms de mentoria, e parcerias
+
+destacar simbolo de inclusão e texto
+
+
 
 

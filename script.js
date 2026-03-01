@@ -1,12 +1,11 @@
-// Mobile Menu Toggle
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
+function initMobileMenuAndHeader() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (!mobileMenuToggle || !navMenu || mobileMenuToggle.dataset.initialized === '1') return;
+    mobileMenuToggle.dataset.initialized = '1';
 
-if (mobileMenuToggle) {
     mobileMenuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        
-        // Animate hamburger icon
         const spans = mobileMenuToggle.querySelectorAll('span');
         if (navMenu.classList.contains('active')) {
             spans[0].style.transform = 'rotate(45deg) translate(8px, 8px)';
@@ -18,18 +17,37 @@ if (mobileMenuToggle) {
             spans[2].style.transform = 'none';
         }
     });
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        });
+    });
 }
 
-// Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-menu a');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const spans = mobileMenuToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+function initHeaderScrollEffect() {
+    const header = document.querySelector('.header');
+    if (!header || header.dataset.scrollInit === '1') return;
+    header.dataset.scrollInit = '1';
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        header.style.boxShadow = currentScroll > 100
+            ? '0 4px 20px rgba(0, 0, 0, 0.15)'
+            : '0 2px 10px rgba(0, 0, 0, 0.1)';
     });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenuAndHeader();
+    initHeaderScrollEffect();
+});
+document.addEventListener('componentsLoaded', () => {
+    initMobileMenuAndHeader();
+    initHeaderScrollEffect();
 });
 
 // Smooth scroll for anchor links
@@ -49,24 +67,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Header scroll effect
-let lastScroll = 0;
-const header = document.querySelector('.header');
-
-if (header) {
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
-        
-        lastScroll = currentScroll;
-    });
-}
 
 // Intersection Observer for fade-in animations
 const observerOptions = {

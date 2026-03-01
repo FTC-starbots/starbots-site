@@ -5,8 +5,17 @@
 
 class ComponentLoader {
     constructor() {
-        this.componentsPath = '/components';
+        this.componentsPath = this.getBasePath() + 'components';
         this.cache = {};
+    }
+
+    /**
+     * Retorna o caminho base do site (funciona em subpastas, ex: GitHub Pages)
+     */
+    getBasePath() {
+        const path = window.location.pathname;
+        const base = path.endsWith('/') ? path : path.replace(/\/[^/]*$/, '/');
+        return base || '/';
     }
 
     /**
@@ -20,11 +29,17 @@ class ComponentLoader {
         }
 
         try {
-            const response = await fetch(`${this.componentsPath}/${componentName}.html`);
+            const url = `${this.componentsPath}/${componentName}.html`;
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error(`Erro ao carregar componente: ${componentName}`);
             }
-            const html = await response.text();
+            let html = await response.text();
+            const base = this.getBasePath();
+            if (base !== '/') {
+                html = html.replace(/href="\//g, 'href="' + base);
+                html = html.replace(/src="public\//g, 'src="' + base + 'public/');
+            }
             this.cache[componentName] = html;
             return html;
         } catch (error) {
@@ -60,28 +75,13 @@ class ComponentLoader {
             this.injectComponent('contato', 'contato-placeholder')
         ]);
 
-        // Reinicializa o menu mobile após carregar o header
-        this.initMobileMenu();
-        
+        // Menu mobile e efeitos do header são inicializados em script.js (evento componentsLoaded)
+
         // Marca o link ativo no menu
         this.setActiveNavLink();
 
         // Dispara evento para indicar que componentes foram carregados
         document.dispatchEvent(new CustomEvent('componentsLoaded'));
-    }
-
-    /**
-     * Inicializa o menu mobile
-     */
-    initMobileMenu() {
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-
-        if (mobileToggle && navMenu) {
-            mobileToggle.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-        }
     }
 
     /**

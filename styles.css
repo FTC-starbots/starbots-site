@@ -1,6 +1,8 @@
+/* Versão dos estilos para cache busting: 20250301 */
+
 @font-face {
     font-family: 'Nasa';
-    src: url('/public/fonts/Nasa.otf') format('opentype');
+    src: url('public/fonts/Nasa.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -24,11 +26,19 @@
     --transition: all 0.3s ease;
 }
 
+/* Mobile: evita zoom de texto no iOS e melhora toque */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
+    tap-highlight-color: rgba(0, 0, 0, 0.05);
 }
 
 .container {
@@ -1102,7 +1112,7 @@ a.patrocinador-logo {
 }
 
 .footer-logo-img {
-    max-width: 200px;
+    max-width: 120px;
     height: auto;
     object-fit: contain;
 }
@@ -1543,6 +1553,50 @@ html {
 
 .hero-video-bg .hero-buttons {
     animation: heroFadeIn 0.8s ease 1.6s both;
+}
+
+/* Aviso "Vídeo em breve" no fundo do vídeo do hero (igual às outras páginas) */
+.hero-video-aviso-badge {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: heroVideoAvisoFadeIn 0.8s ease 1.8s both;
+}
+
+@keyframes heroVideoAvisoFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hero-video-aviso-badge.recadinho-video-placeholder {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+}
+
+.hero-video-aviso-badge svg {
+    width: 20px;
+    height: 20px;
+}
+
+.hero-video-aviso-badge span {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 @keyframes heroFadeIn {
@@ -3434,7 +3488,7 @@ html {
 }
 
 .core-value-icon {
-    color: var(--text-light);
+    color: var(--accent-orange);
     margin-bottom: 1rem;
 }
 
@@ -4508,6 +4562,12 @@ html {
     padding: 2rem;
 }
 
+.mentorias-material-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
 .material-list {
     list-style: none;
     padding: 0;
@@ -5093,6 +5153,28 @@ html {
     margin: 0 auto;
 }
 
+/* Indicações intro video (embed) */
+.indicacoes-intro-video-block {
+    margin-bottom: 3rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.indicacoes-intro-video-text {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+.indicacoes-intro-video-text {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Indicações Note */
 .indicacoes-note {
     display: flex;
@@ -5288,6 +5370,22 @@ html {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.contato-duvidas-text {
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.contato-duvidas-text a {
+    color: var(--accent-orange);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.contato-duvidas-text a:hover {
+    color: #e55a2b;
 }
 
 .cta-button {
