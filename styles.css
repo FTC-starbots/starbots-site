@@ -646,6 +646,28 @@ a.patrocinador-logo {
     border: none;
 }
 
+/* Indicador de site inclusivo junto aos vídeos */
+.video-inclusivo-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.video-inclusivo-indicator img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.video-inclusivo-indicator span {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 500;
+}
+
 .recadinho-video-placeholder {
     position: absolute;
     top: 0;
@@ -2928,15 +2950,16 @@ html {
     margin-bottom: 2rem;
 }
 
-.awards-year-wrapper {
+/* Card: imagem à esquerda, conteúdo à direita (design da print) */
+.awards-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: start;
+    align-items: stretch;
 }
 
-/* Image Side - Card Tombado Style */
-.awards-year-image {
+/* Coluna esquerda: foto do robô/temporada */
+.awards-card-image {
     position: relative;
     perspective: 1000px;
 }
@@ -3029,90 +3052,93 @@ html {
     transform: rotate(-1.5deg);
 }
 
-/* Awards List Side */
-.awards-year-list {
+/* Coluna direita: nome da temporada + nomes das premiações + fotos embaixo */
+.awards-card-content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-}
-
-.award-item {
-    display: flex;
     gap: 1.25rem;
-    padding: 1.25rem 1.5rem;
-    background: #fafafa;
-    border-radius: 8px;
-    border-left: 3px solid #e0e0e0;
-    transition: all 0.3s ease;
-    align-items: center;
+    min-height: 100%;
 }
 
-.award-item:hover {
-    background: #f5f5f5;
-    border-left-color: var(--accent-orange);
-}
-
-.award-item.highlight {
-    background: linear-gradient(135deg, #fff8f5 0%, #ffffff 100%);
-    border-left: 4px solid var(--accent-orange);
-    box-shadow: 0 4px 12px rgba(232, 90, 44, 0.1);
-}
-
-/* Award Badge */
-.award-item-badge {
-    flex-shrink: 0;
-    width: 70px;
-    height: 70px;
-}
-
-.award-item-badge img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Award Content */
-.award-item-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.award-item-title {
-    font-size: 1.1rem;
-    font-weight: 600;
+.awards-season-name {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+.awards-names-list {
+    margin: 0;
+    flex: 1;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.awards-names-list p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2d2d2d;
+    line-height: 1.75;
+    margin: 0 0 0.75rem 0;
+    position: relative;
+}
+
+.awards-names-list p::before {
+    content: '';
+    position: absolute;
+    left: -1.25rem;
+    top: 0.65em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-orange, #e85a2c);
+    opacity: 0.85;
+}
+
+.awards-names-list p:last-child {
+    margin-bottom: 0;
 }
 
 .award-intl-tag {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #0077b6;
     background: #e6f4fa;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    margin-left: 0.35rem;
+    vertical-align: middle;
 }
 
-.award-item-desc {
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin: 0;
+/* Fotos das premiações fixas na parte de baixo do card */
+.awards-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e8e8e8;
+    flex-shrink: 0;
+    justify-content: flex-end;
+}
+
+.awards-photos img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 /* Responsive Awards Fortune */
 @media (max-width: 1024px) {
-    .awards-year-wrapper {
+    .awards-card {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
 
-    .awards-year-image {
+    .awards-card-image {
         max-width: 450px;
         margin: 0 auto;
     }
@@ -3153,22 +3179,17 @@ html {
         padding-bottom: 2rem;
     }
 
-    .award-item {
-        padding: 1rem 1.25rem;
-        gap: 1rem;
+    .awards-season-name {
+        font-size: 1.35rem;
     }
 
-    .award-item-badge {
-        width: 55px;
-        height: 55px;
+    .awards-names-list p {
+        font-size: 1.05rem;
     }
 
-    .award-item-title {
-        font-size: 1rem;
-    }
-
-    .award-item-desc {
-        font-size: 0.85rem;
+    .awards-photos img {
+        width: 64px;
+        height: 64px;
     }
 }
 
@@ -3189,19 +3210,27 @@ html {
         bottom: -3px;
     }
 
-    .award-item {
-        gap: 0.75rem;
+    .awards-season-name {
+        font-size: 1.2rem;
     }
 
-    .award-item-badge {
-        width: 45px;
-        height: 45px;
+    .awards-names-list p {
+        font-size: 1rem;
     }
 
-    .award-item-title {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+    .awards-names-list {
+        padding-left: 1rem;
+    }
+
+    .awards-names-list p::before {
+        left: -1rem;
+        width: 4px;
+        height: 4px;
+    }
+
+    .awards-photos img {
+        width: 56px;
+        height: 56px;
     }
 }
 
