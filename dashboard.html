@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>Dashboard - Admin Starbots FTC</title>
+    <link rel="icon" type="image/webp" href="/images/afonso.webp">
+    <link rel="apple-touch-icon" href="/images/afonso.webp">
+    <link rel="stylesheet" href="styles.css?v=20250301">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .admin-dashboard-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+        .admin-dashboard-nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .admin-dashboard-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body class="admin-page">
+    <nav class="admin-dashboard-nav">
+        <span style="font-weight: 600; color: var(--primary-color);">Starbots Admin</span>
+        <div style="display: flex; gap: 1rem;">
+            <a href="/login">Login</a>
+            <a href="/">Voltar ao site</a>
+        </div>
+    </nav>
+    <main class="admin-dashboard-wrap">
+        <h1>Dashboard</h1>
+        <p class="admin-dashboard-subtitle">Visão geral e acesso rápido às áreas de gestão.</p>
+        <div id="dashboard-cards" class="admin-cards-grid">
+            <div class="admin-card">
+                <h2>Contatos</h2>
+                <div id="contatos-stat" class="admin-card-stat">—</div>
+                <p class="admin-card-desc">Respostas do formulário de contato.</p>
+                <a href="/contatos-test" class="admin-btn admin-btn-primary">Ver lista de contatos</a>
+            </div>
+            <div class="admin-card">
+                <h2>Premiações</h2>
+                <div id="awards-stat" class="admin-card-stat">—</div>
+                <p class="admin-card-desc">Temporadas e prêmios exibidos na página de premiações.</p>
+                <a href="/dashboard-premiacoes" class="admin-btn admin-btn-primary">Área de prêmios</a>
+            </div>
+        </div>
+    </main>
+    <script>
+        (function() {
+            var contatosEl = document.getElementById('contatos-stat');
+            var awardsEl = document.getElementById('awards-stat');
+
+            function load() {
+                fetch('/api/contacts').then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        contatosEl.textContent = Array.isArray(data) ? data.length : '0';
+                    }).catch(function() { contatosEl.textContent = '0'; });
+
+                fetch('/api/awards').then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        awardsEl.textContent = Array.isArray(data) ? data.length : '0';
+                    }).catch(function() { awardsEl.textContent = '0'; });
+            }
+            if (document.readyState === 'complete') load(); else window.addEventListener('load', load);
+        })();
+    </script>
+</body>
+</html>

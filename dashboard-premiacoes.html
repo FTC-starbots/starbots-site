@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>Área de prêmios - Admin Starbots FTC</title>
+    <link rel="icon" type="image/webp" href="/images/afonso.webp">
+    <link rel="apple-touch-icon" href="/images/afonso.webp">
+    <link rel="stylesheet" href="styles.css?v=20250301">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .admin-dashboard-nav { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; z-index: 100; }
+        .admin-dashboard-nav a { color: var(--accent-color); text-decoration: none; font-weight: 500; }
+        .admin-dashboard-nav a:hover { text-decoration: underline; }
+        .admin-form-section textarea { width: 100%; min-height: 120px; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 0.95rem; resize: vertical; }
+        .admin-form-section textarea:focus { outline: none; border-color: var(--accent-color); }
+        .admin-btn-danger { background: #c00; color: #fff; }
+        .admin-btn-danger:hover { background: #a00; }
+        .admin-btn-small { padding: 0.4rem 0.75rem; font-size: 0.875rem; }
+        #photo-upload-input { display: none; }
+    </style>
+</head>
+<body class="admin-page">
+    <nav class="admin-dashboard-nav">
+        <a href="/dashboard">← Dashboard</a>
+        <div style="display: flex; gap: 1rem;">
+            <a href="/premiacoes-robos" target="_blank">Ver página pública</a>
+            <a href="/">Voltar ao site</a>
+        </div>
+    </nav>
+    <main class="admin-dashboard-wrap">
+        <h1>Área de prêmios</h1>
+        <p class="admin-dashboard-subtitle">Adicione ou edite cards de premiação (ano, temporada, prêmios e fotos).</p>
+
+        <div class="admin-form-section">
+            <h3 id="form-title">Nova premiação</h3>
+            <input type="hidden" id="edit-id" value="">
+            <div class="form-group">
+                <label for="ano">Ano (ex: 2025/2026)</label>
+                <input type="text" id="ano" placeholder="2025/2026" required>
+            </div>
+            <div class="form-group">
+                <label for="nomeTemporada">Nome da temporada</label>
+                <input type="text" id="nomeTemporada" placeholder="DECODE" required>
+            </div>
+            <div class="form-group">
+                <label for="fotoRobo">Imagem do robô (caminho, ex: /seasons/decode.webp)</label>
+                <input type="text" id="fotoRobo" placeholder="/seasons/decode.webp">
+            </div>
+            <div class="form-group">
+                <label for="premios">Prêmios (um por linha)</label>
+                <textarea id="premios" placeholder="Prêmio Inspiração (Regional);&#10;Aliança Vencedora (Off Season);"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Fotos dos prêmios (escolha na biblioteca ou envie nova)</label>
+                <div class="admin-photo-library" id="photo-library"></div>
+                <button type="button" class="admin-btn admin-btn-secondary" id="btn-upload-photo" style="margin-top: 0.75rem;">Enviar nova foto</button>
+                <input type="file" id="photo-upload-input" accept="image/png,image/jpeg,image/webp,image/gif">
+            </div>
+            <button type="button" class="admin-btn admin-btn-primary" id="btn-save">Salvar premiação</button>
+            <button type="button" class="admin-btn admin-btn-secondary" id="btn-cancel" style="margin-left: 0.5rem; display: none;">Cancelar edição</button>
+        </div>
+
+        <h2 style="font-size: 1.25rem; margin: 2rem 0 1rem;">Premiações salvas</h2>
+        <div id="premiacoes-list" class="admin-premiacoes-list">
+            <p style="color: var(--text-light);">Carregando...</p>
+        </div>
+    </main>
+    <script>
+        (function() {
+            var editId = document.getElementById('edit-id');
+            var formTitle = document.getElementById('form-title');
+            var ano = document.getElementById('ano');
+            var nomeTemporada = document.getElementById('nomeTemporada');
+            var fotoRobo = document.getElementById('fotoRobo');
+            var premios = document.getElementById('premios');
+            var photoLibrary = document.getElementById('photo-library');
+            var btnUpload = document.getElementById('btn-upload-photo');
+            var photoUploadInput = document.getElementById('photo-upload-input');
+            var btnSave = document.getElementById('btn-save');
+            var btnCancel = document.getElementById('btn-cancel');
+            var premiacoesList = document.getElementById('premiacoes-list');
+
+            var selectedPhotoIds = [];
+            var library = [];
+
+            function loadLibrary() {
+                return fetch('/api/awards/library').then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        library = Array.isArray(data) ? data : [];
+                        renderLibrary();
+                    });
+            }
+
+            function renderLibrary() {
+                photoLibrary.innerHTML = '';
+                library.forEach(function(p) {
+                    var wrap = document.createElement('div');
+                    wrap.className = 'admin-photo-library-item' + (selectedPhotoIds.indexOf(p.id) >= 0 ? ' selected' : '');
+                    wrap.dataset.id = p.id;
+                    var img = document.createElement('img');
+                    img.src = p.url;
+                    img.alt = p.label || p.id;
+                    wrap.appendChild(img);
+                    wrap.addEventListener('click', function() {
+                        var idx = selectedPhotoIds.indexOf(p.id);
+                        if (idx >= 0) selectedPhotoIds.splice(idx, 1);
+                        else selectedPhotoIds.push(p.id);
+                        renderLibrary();
+                    });
+                    photoLibrary.appendChild(wrap);
+                });
+            }
+
+            function loadPremiacoes() {
+                premiacoesList.innerHTML = '<p style="color: var(--text-light);">Carregando...</p>';
+                fetch('/api/awards').then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        var list = Array.isArray(data) ? data : [];
+                        if (list.length === 0) {
+                            premiacoesList.innerHTML = '<p style="color: var(--text-light);">Nenhuma premiação cadastrada. Use o formulário acima para adicionar.</p>';
+                            return;
+                        }
+                        premiacoesList.innerHTML = list.map(function(a) {
+                            var premiosCount = (a.premios && a.premios.length) || 0;
+                            var fotosCount = (a.fotosPremios && a.fotosPremios.length) || 0;
+                            return '<div class="admin-premiacao-item">' +
+                                '<div><h3>' + escapeHtml(a.ano) + ' — ' + escapeHtml(a.nomeTemporada) + '</h3>' +
+                                '<span class="admin-premiacao-meta">' + premiosCount + ' prêmio(s), ' + fotosCount + ' foto(s)</span></div>' +
+                                '<div><button type="button" class="admin-btn admin-btn-secondary admin-btn-small" data-edit="' + escapeHtml(a.id) + '">Editar</button> ' +
+                                '<button type="button" class="admin-btn admin-btn-danger admin-btn-small" data-delete="' + escapeHtml(a.id) + '">Excluir</button></div>' +
+                                '</div>';
+                        }).join('');
+                        premiacoesList.querySelectorAll('[data-edit]').forEach(function(btn) {
+                            btn.addEventListener('click', function() { fillForm(btn.dataset.edit, list); });
+                        });
+                        premiacoesList.querySelectorAll('[data-delete]').forEach(function(btn) {
+                            btn.addEventListener('click', function() { deleteAward(btn.dataset.delete, loadPremiacoes); });
+                        });
+                    }).catch(function() {
+                        premiacoesList.innerHTML = '<p style="color: #c00;">Erro ao carregar premiações.</p>';
+                    });
+            }
+
+            function fillForm(id, list) {
+                var a = list.find(function(x) { return x.id === id; });
+                if (!a) return;
+                editId.value = a.id;
+                ano.value = a.ano || '';
+                nomeTemporada.value = a.nomeTemporada || '';
+                fotoRobo.value = a.fotoRobo || '';
+                premios.value = (a.premios || []).join('\n');
+                selectedPhotoIds = (a.fotosPremios || []).slice();
+                formTitle.textContent = 'Editar premiação';
+                btnCancel.style.display = 'inline-flex';
+                renderLibrary();
+            }
+
+            function clearForm() {
+                editId.value = '';
+                formTitle.textContent = 'Nova premiação';
+                ano.value = '';
+                nomeTemporada.value = '';
+                fotoRobo.value = '';
+                premios.value = '';
+                selectedPhotoIds = [];
+                btnCancel.style.display = 'none';
+                renderLibrary();
+            }
+
+            function deleteAward(id, onDone) {
+                if (!confirm('Excluir esta premiação?')) return;
+                fetch('/api/awards?id=' + encodeURIComponent(id), { method: 'DELETE' })
+                    .then(function(r) {
+                        if (r.ok) { clearForm(); onDone(); }
+                        else alert('Erro ao excluir.');
+                    })
+                    .catch(function() { alert('Erro ao excluir.'); });
+            }
+
+            function saveAward() {
+                var premiosList = premios.value.trim().split('\n').map(function(s) { return s.trim(); }).filter(Boolean);
+                var payload = {
+                    ano: ano.value.trim(),
+                    nomeTemporada: nomeTemporada.value.trim(),
+                    fotoRobo: fotoRobo.value.trim(),
+                    premios: premiosList,
+                    fotosPremios: selectedPhotoIds.slice()
+                };
+                if (editId.value) payload.id = editId.value;
+
+                fetch('/api/awards', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).then(function(r) { return r.json(); })
+                    .then(function() {
+                        clearForm();
+                        loadPremiacoes();
+                    })
+                    .catch(function() { alert('Erro ao salvar.'); });
+            }
+
+            function escapeHtml(s) {
+                var div = document.createElement('div');
+                div.textContent = s;
+                return div.innerHTML;
+            }
+
+            btnUpload.addEventListener('click', function() { photoUploadInput.click(); });
+            photoUploadInput.addEventListener('change', function() {
+                var file = this.files && this.files[0];
+                if (!file) return;
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var base64 = reader.result;
+                    fetch('/api/awards/upload-photo', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ image: base64, label: file.name.replace(/\.[^.]+$/, '') })
+                    }).then(function(r) { return r.json(); })
+                        .then(function(entry) {
+                            selectedPhotoIds.push(entry.id);
+                            library.push(entry);
+                            renderLibrary();
+                            photoUploadInput.value = '';
+                        })
+                        .catch(function() { alert('Erro no upload.'); });
+                };
+                reader.readAsDataURL(file);
+            });
+
+            btnSave.addEventListener('click', saveAward);
+            btnCancel.addEventListener('click', clearForm);
+
+            loadLibrary().then(loadPremiacoes);
+        })();
+    </script>
+</body>
+</html>
