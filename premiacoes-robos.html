@@ -11,6 +11,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload das APIs de premiações para começar o fetch o mais cedo possível -->
+    <link rel="preload" href="/api/awards" as="fetch" crossorigin>
+    <link rel="preload" href="/api/awards/library" as="fetch" crossorigin>
 </head>
 <body>
     <!-- Header (carregado via JS) -->
@@ -33,15 +36,7 @@
         </div>
     </section>
 
-    <!-- Entre em Contato Section (carregado via JS) -->
-    <div id="contato-placeholder"></div>
-
-    <!-- Footer (carregado via JS) -->
-    <div id="footer-placeholder"></div>
-
-    <script src="js/components.js?v=20250301"></script>
-    <script src="js/animations.js?v=20250301"></script>
-    <script src="script.js?v=20250301"></script>
+    <!-- Script de premiações roda assim que o container existe, sem esperar os outros JS -->
     <script>
         (function() {
             var container = document.getElementById('awards-dynamic-container');
@@ -105,5 +100,15 @@
             });
         })();
     </script>
+
+    <!-- Entre em Contato Section (carregado via JS) -->
+    <div id="contato-placeholder"></div>
+
+    <!-- Footer (carregado via JS) -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/components.js?v=20250301"></script>
+    <script src="js/animations.js?v=20250301"></script>
+    <script src="script.js?v=20250301"></script>
 </body>
 </html>
