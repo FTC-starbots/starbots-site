@@ -36,11 +36,14 @@
         </div>
     </section>
 
-    <!-- Script de premiações roda assim que o container existe, sem esperar os outros JS -->
+    <!-- Script de premiações: usa cache (sessionStorage) se existir para não mostrar "Carregando..." -->
     <script>
         (function() {
             var container = document.getElementById('awards-dynamic-container');
             if (!container) return;
+
+            var CACHE_AWARDS = 'starbots_awards';
+            var CACHE_LIBRARY = 'starbots_awards_library';
 
             function escapeHtml(s) {
                 if (!s) return '';
@@ -88,12 +91,42 @@
                 }).join('');
             }
 
+            function saveToCache(awards, library) {
+                try {
+                    if (typeof sessionStorage !== 'undefined') {
+                        sessionStorage.setItem(CACHE_AWARDS, JSON.stringify(awards));
+                        sessionStorage.setItem(CACHE_LIBRARY, JSON.stringify(library));
+                    }
+                } catch (e) {}
+            }
+
+            function loadFromCache() {
+                try {
+                    if (typeof sessionStorage === 'undefined') return null;
+                    var rawAwards = sessionStorage.getItem(CACHE_AWARDS);
+                    var rawLibrary = sessionStorage.getItem(CACHE_LIBRARY);
+                    if (rawAwards === null || rawLibrary === null) return null;
+                    var awards = JSON.parse(rawAwards);
+                    var library = JSON.parse(rawLibrary);
+                    return Array.isArray(awards) && Array.isArray(library) ? { awards: awards, library: library } : null;
+                } catch (e) {
+                    return null;
+                }
+            }
+
+            var cached = loadFromCache();
+            if (cached) {
+                renderAwards(cached.awards, cached.library);
+                return;
+            }
+
             Promise.all([
                 fetch('/api/awards').then(function(r) { return r.json(); }),
                 fetch('/api/awards/library').then(function(r) { return r.json(); })
             ]).then(function(results) {
                 var awards = Array.isArray(results[0]) ? results[0] : [];
                 var library = Array.isArray(results[1]) ? results[1] : [];
+                saveToCache(awards, library);
                 renderAwards(awards, library);
             }).catch(function() {
                 container.innerHTML = '<p style="padding: 2rem; text-align: center; color: var(--text-light);">Não foi possível carregar as premiações. Tente novamente mais tarde.</p>';

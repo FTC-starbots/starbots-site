@@ -3,6 +3,28 @@
  * Carrega header, footer e seção de contato de arquivos externos
  */
 
+/** Chaves de cache de premiações (sessionStorage) para evitar "Carregando..." na página de premiações */
+var AWARDS_CACHE_KEY = 'starbots_awards';
+var AWARDS_LIBRARY_CACHE_KEY = 'starbots_awards_library';
+
+/**
+ * Prefetch das premiações ao entrar no site; salva em sessionStorage para a página de premiações usar sem loading.
+ */
+function prefetchAwards() {
+    if (typeof sessionStorage === 'undefined') return;
+    Promise.all([
+        fetch('/api/awards').then(function (r) { return r.json(); }),
+        fetch('/api/awards/library').then(function (r) { return r.json(); })
+    ]).then(function (results) {
+        var awards = Array.isArray(results[0]) ? results[0] : [];
+        var library = Array.isArray(results[1]) ? results[1] : [];
+        try {
+            sessionStorage.setItem(AWARDS_CACHE_KEY, JSON.stringify(awards));
+            sessionStorage.setItem(AWARDS_LIBRARY_CACHE_KEY, JSON.stringify(library));
+        } catch (e) { /* quota ou indisponível */ }
+    }).catch(function () { /* falha silenciosa; a página de premiações fará o fetch */ });
+}
+
 class ComponentLoader {
     constructor() {
         this.componentsPath = this.getBasePath() + 'components';
@@ -108,6 +130,7 @@ class ComponentLoader {
 
 // Inicializa o carregador de componentes quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', () => {
+    prefetchAwards(); // premiações já ficam em cache para quando o usuário for na página
     const loader = new ComponentLoader();
     loader.init();
 });
