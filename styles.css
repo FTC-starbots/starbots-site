@@ -257,6 +257,12 @@ body {
 /* Hero Video Background */
 .hero-video-bg {
     background: #0a0a0a;
+    cursor: pointer;
+}
+
+.hero-video-bg .hero-buttons,
+.hero-video-bg .hero-buttons a {
+    cursor: pointer;
 }
 
 .hero-bg-video {
@@ -310,7 +316,7 @@ body {
 }
 
 .hero-video-bg .hero-overlay {
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.35);
 }
 
 .hero-content-wrapper {
@@ -3113,16 +3119,16 @@ html {
     vertical-align: middle;
 }
 
-/* Fotos das premiações fixas na parte de baixo do card */
+/* Fotos das premiações fixas na parte de baixo do card - até 3 silhuetas por linha */
 .awards-photos {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
     gap: 1rem;
     margin-top: auto;
     padding-top: 1.25rem;
     border-top: 1px solid #e8e8e8;
     flex-shrink: 0;
-    justify-content: flex-end;
+    justify-content: end;
 }
 
 .awards-photos img {
@@ -3187,6 +3193,10 @@ html {
         font-size: 1.05rem;
     }
 
+    .awards-photos {
+        grid-template-columns: repeat(3, 64px);
+    }
+
     .awards-photos img {
         width: 64px;
         height: 64px;
@@ -3226,6 +3236,10 @@ html {
         left: -1rem;
         width: 4px;
         height: 4px;
+    }
+
+    .awards-photos {
+        grid-template-columns: repeat(3, 56px);
     }
 
     .awards-photos img {
