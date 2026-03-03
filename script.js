@@ -35,14 +35,32 @@ function initHeroVideoToggle() {
     if (!heroSection || !video || heroSection.dataset.videoToggleInit === '1') return;
     heroSection.dataset.videoToggleInit = '1';
 
-    heroSection.addEventListener('click', (e) => {
+    let lastTouchStartAt = 0;
+
+    const playOrPause = (e) => {
         if (e.target.closest('a') || e.target.closest('.hero-buttons')) return;
+        // No mobile, ignorar o click que vem logo após o touch que deu play (evita play→pause)
+        if (lastTouchStartAt && Date.now() - lastTouchStartAt < 400) return;
         if (video.paused) {
-            video.play();
+            video.play().catch(() => {});
         } else {
             video.pause();
         }
-    });
+    };
+
+    heroSection.addEventListener('click', playOrPause);
+
+    // Mobile: autoplay costuma ser bloqueado; primeiro toque inicia o vídeo
+    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile()) {
+        video.play().catch(() => {});
+        heroSection.addEventListener('touchstart', function onFirstTouch(e) {
+            if (e.target.closest('a') || e.target.closest('.hero-buttons')) return;
+            lastTouchStartAt = Date.now();
+            video.play().catch(() => {});
+            heroSection.removeEventListener('touchstart', onFirstTouch);
+        }, { passive: true });
+    }
 }
 
 function initHeaderScrollEffect() {
