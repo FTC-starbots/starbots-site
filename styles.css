@@ -632,10 +632,11 @@ a.patrocinador-logo {
     margin: 0 auto;
 }
 
+/* Container vertical 9:16 — proporção natural do vídeo em celular, sem esticar */
 .recadinho-video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 177.78%;
+    aspect-ratio: 9 / 16;
     border-radius: 20px;
     overflow: hidden;
     background: #1a1a1a;
@@ -645,25 +646,16 @@ a.patrocinador-logo {
 .recadinho-video-container video,
 .recadinho-video-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     border: none;
 }
 
+/* contain = mostra o vídeo inteiro na proporção correta, sem distorcer */
 .recadinho-video-container video {
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-}
-
-/* Iframe (ex.: embed): leve escala para reduzir faixas pretas sem distorcer a proporção */
-.recadinho-video-container iframe {
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%) scale(1.15);
 }
 
 /* Indicador de site inclusivo junto aos vídeos */
@@ -720,6 +712,20 @@ a.patrocinador-logo {
 
     .recadinho-video-wrapper {
         max-width: 280px;
+    }
+
+    .recadinho-video-container video {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .recadinho-video-container iframe {
+        inset: auto;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 116%;
+        height: 100%;
     }
 }
 
@@ -6440,13 +6446,14 @@ html {
     flex-shrink: 0;
 }
 
+/* Container vertical 9:16 — proporção natural, sem esticar */
 .inclusao-video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 177.78%;
+    aspect-ratio: 9 / 16;
     border-radius: 20px;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.3);
+    background: #1a1a1a;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
@@ -6454,22 +6461,15 @@ html {
 .inclusao-video-container video,
 .inclusao-video-container iframe {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+    border: none;
 }
 
 .inclusao-video-container video {
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
-}
-
-/* Iframe: leve escala para reduzir faixas pretas sem distorcer a proporção */
-.inclusao-video-container iframe {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(1.15);
 }
 
 @media (max-width: 992px) {
@@ -6511,6 +6511,20 @@ html {
 
     .inclusao-video {
         width: 250px;
+    }
+
+    .inclusao-video-container video {
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .inclusao-video-container iframe {
+        inset: auto;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 116%;
+        height: 100%;
     }
 }
 
