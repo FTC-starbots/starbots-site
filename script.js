@@ -29,6 +29,22 @@ function initMobileMenuAndHeader() {
     });
 }
 
+function initHeroVideoToggle() {
+    const heroSection = document.querySelector('.hero.hero-video-bg');
+    const video = document.getElementById('hero-bg-video');
+    if (!heroSection || !video || heroSection.dataset.videoToggleInit === '1') return;
+    heroSection.dataset.videoToggleInit = '1';
+
+    heroSection.addEventListener('click', (e) => {
+        if (e.target.closest('a') || e.target.closest('.hero-buttons')) return;
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+}
+
 function initHeaderScrollEffect() {
     const header = document.querySelector('.header');
     if (!header || header.dataset.scrollInit === '1') return;
@@ -43,10 +59,12 @@ function initHeaderScrollEffect() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenuAndHeader();
+    initHeroVideoToggle();
     initHeaderScrollEffect();
 });
 document.addEventListener('componentsLoaded', () => {
     initMobileMenuAndHeader();
+    initHeroVideoToggle();
     initHeaderScrollEffect();
 });
 
