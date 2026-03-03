@@ -3,3 +3,8 @@ node_modules
 *.log
 .DS_Store
 
+# Nunca enviar variáveis de ambiente no deploy
+.env
+.env.*
+.env.local
+
